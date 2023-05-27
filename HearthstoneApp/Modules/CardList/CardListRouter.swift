@@ -20,10 +20,10 @@ class CardListRouter: CardListRouterProtocol {
     
     func navigateToCardDetail(with card: CardListModels.Card) {
         // Criar e configurar a tela de detalhes do cartão
-        let cardDetailVC = CardDetailViewController(card: card)
+//        let cardDetailVC = CardDetailViewController(card: card)
         
         // Navegar para a tela de detalhes
-        viewController?.navigationController?.pushViewController(cardDetailVC, animated: true)
+//        viewController?.navigationController?.pushViewController(cardDetailVC, animated: true)
     }
 }
 
