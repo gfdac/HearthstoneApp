@@ -8,8 +8,12 @@
 import Foundation
 
 class HearthstoneAPI {
-    private let networkService = NetworkService()
+    private let networkService: NetworkService
     private let decoder = JSONDecoder()
+    
+    init(networkService: NetworkService = NetworkService()) {
+        self.networkService = networkService
+    }
     
     func getAllCards(completion: @escaping (Result<[Card], Error>) -> Void) {
         networkService.request(endpoint: "cards") { [weak self] result in
