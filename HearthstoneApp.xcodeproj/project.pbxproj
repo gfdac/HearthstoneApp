@@ -21,6 +21,7 @@
 		1A72B3A42A22B649006E3BAC /* HearthstoneAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A32A22B649006E3BAC /* HearthstoneAPITests.swift */; };
 		1A72B3A72A22BFAB006E3BAC /* CardListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A62A22BFAB006E3BAC /* CardListModels.swift */; };
 		1A72B3AA2A22C036006E3BAC /* CardDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A92A22C036006E3BAC /* CardDetailModels.swift */; };
+		1A72B3AC2A22C19D006E3BAC /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3AB2A22C19D006E3BAC /* CardListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		1A72B3A32A22B649006E3BAC /* HearthstoneAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneAPITests.swift; sourceTree = "<group>"; };
 		1A72B3A62A22BFAB006E3BAC /* CardListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListModels.swift; sourceTree = "<group>"; };
 		1A72B3A92A22C036006E3BAC /* CardDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailModels.swift; sourceTree = "<group>"; };
+		1A72B3AB2A22C19D006E3BAC /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				1A72B3A62A22BFAB006E3BAC /* CardListModels.swift */,
+				1A72B3AB2A22C19D006E3BAC /* CardListViewController.swift */,
 			);
 			path = CardList;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				1A72B36E2A22A53A006E3BAC /* ViewController.swift in Sources */,
 				1A72B36A2A22A53A006E3BAC /* AppDelegate.swift in Sources */,
 				1A72B3A22A22B0A6006E3BAC /* HearthstoneAPI.swift in Sources */,
+				1A72B3AC2A22C19D006E3BAC /* CardListViewController.swift in Sources */,
 				1A72B3A02A22AF2D006E3BAC /* NetworkService.swift in Sources */,
 				1A72B36C2A22A53A006E3BAC /* SceneDelegate.swift in Sources */,
 				1A72B3A72A22BFAB006E3BAC /* CardListModels.swift in Sources */,
