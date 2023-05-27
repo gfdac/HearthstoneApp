@@ -18,6 +18,7 @@
 		1A72B38D2A22A53C006E3BAC /* HearthstoneAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B38C2A22A53C006E3BAC /* HearthstoneAppUITestsLaunchTests.swift */; };
 		1A72B3A02A22AF2D006E3BAC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B39F2A22AF2D006E3BAC /* NetworkService.swift */; };
 		1A72B3A22A22B0A6006E3BAC /* HearthstoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A12A22B0A6006E3BAC /* HearthstoneAPI.swift */; };
+		1A72B3A42A22B649006E3BAC /* HearthstoneAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A32A22B649006E3BAC /* HearthstoneAPITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1A72B38C2A22A53C006E3BAC /* HearthstoneAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1A72B39F2A22AF2D006E3BAC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1A72B3A12A22B0A6006E3BAC /* HearthstoneAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneAPI.swift; sourceTree = "<group>"; };
+		1A72B3A32A22B649006E3BAC /* HearthstoneAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneAPITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 		1A72B39E2A22A8D9006E3BAC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1A72B3A32A22B649006E3BAC /* HearthstoneAPITests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A72B3A42A22B649006E3BAC /* HearthstoneAPITests.swift in Sources */,
 				1A72B3812A22A53C006E3BAC /* HearthstoneAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
