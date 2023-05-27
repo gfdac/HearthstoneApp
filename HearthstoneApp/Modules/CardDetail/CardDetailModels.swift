@@ -1,5 +1,5 @@
 //
-//  CardListModels.swift
+//  CardDetailModels.swift
 //  HearthstoneApp
 //
 //  Created by Guh F on 27/05/23.
@@ -9,9 +9,9 @@ import Foundation
 
 import Foundation
 
-enum CardListModels {
-    // Model para representar um card
-    struct Card {
+enum CardDetailModels {
+    // Model para representar os detalhes de um cartão
+    struct CardDetails {
         let cardId: String
         let name: String
         let flavor: String
@@ -24,11 +24,5 @@ enum CardListModels {
         let cost: Int
         let health: Int
         let image: String
-    }
-    
-    // Model para representar uma categoria de cards
-    struct CardCategory {
-        let categoryName: String
-        var cards: [Card]
     }
 }
