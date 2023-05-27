@@ -101,6 +101,9 @@
 			children = (
 				1A72B3692A22A53A006E3BAC /* AppDelegate.swift */,
 				1A72B36B2A22A53A006E3BAC /* SceneDelegate.swift */,
+				1A72B3992A22A88C006E3BAC /* Modules */,
+				1A72B39A2A22A89A006E3BAC /* Network */,
+				1A72B39B2A22A8A5006E3BAC /* Extensions */,
 				1A72B36D2A22A53A006E3BAC /* ViewController.swift */,
 				1A72B36F2A22A53A006E3BAC /* Main.storyboard */,
 				1A72B3722A22A53C006E3BAC /* Assets.xcassets */,
@@ -113,6 +116,9 @@
 		1A72B37F2A22A53C006E3BAC /* HearthstoneAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				1A72B39C2A22A8C7006E3BAC /* CardList */,
+				1A72B39D2A22A8D1006E3BAC /* CardDetail */,
+				1A72B39E2A22A8D9006E3BAC /* Network */,
 				1A72B3802A22A53C006E3BAC /* HearthstoneAppTests.swift */,
 			);
 			path = HearthstoneAppTests;
@@ -125,6 +131,48 @@
 				1A72B38C2A22A53C006E3BAC /* HearthstoneAppUITestsLaunchTests.swift */,
 			);
 			path = HearthstoneAppUITests;
+			sourceTree = "<group>";
+		};
+		1A72B3992A22A88C006E3BAC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		1A72B39A2A22A89A006E3BAC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1A72B39B2A22A8A5006E3BAC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1A72B39C2A22A8C7006E3BAC /* CardList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CardList;
+			sourceTree = "<group>";
+		};
+		1A72B39D2A22A8D1006E3BAC /* CardDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CardDetail;
+			sourceTree = "<group>";
+		};
+		1A72B39E2A22A8D9006E3BAC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
