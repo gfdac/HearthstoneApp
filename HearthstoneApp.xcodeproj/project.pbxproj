@@ -28,6 +28,7 @@
 		1A72B3B42A22C4E1006E3BAC /* CardListViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3B32A22C4E1006E3BAC /* CardListViewData.swift */; };
 		1A72B3B62A22C9D8006E3BAC /* CardListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3B52A22C9D8006E3BAC /* CardListInteractorTests.swift */; };
 		1A72B3B82A22CD10006E3BAC /* CardListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3B72A22CD10006E3BAC /* CardListPresenterTests.swift */; };
+		1A72B3BA2A22CE36006E3BAC /* CardListRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3B92A22CE36006E3BAC /* CardListRouterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		1A72B3B32A22C4E1006E3BAC /* CardListViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewData.swift; sourceTree = "<group>"; };
 		1A72B3B52A22C9D8006E3BAC /* CardListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListInteractorTests.swift; sourceTree = "<group>"; };
 		1A72B3B72A22CD10006E3BAC /* CardListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListPresenterTests.swift; sourceTree = "<group>"; };
+		1A72B3B92A22CE36006E3BAC /* CardListRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListRouterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			children = (
 				1A72B3B52A22C9D8006E3BAC /* CardListInteractorTests.swift */,
 				1A72B3B72A22CD10006E3BAC /* CardListPresenterTests.swift */,
+				1A72B3B92A22CE36006E3BAC /* CardListRouterTests.swift */,
 			);
 			path = CardList;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A72B3B82A22CD10006E3BAC /* CardListPresenterTests.swift in Sources */,
+				1A72B3BA2A22CE36006E3BAC /* CardListRouterTests.swift in Sources */,
 				1A72B3A42A22B649006E3BAC /* HearthstoneAPITests.swift in Sources */,
 				1A72B3812A22A53C006E3BAC /* HearthstoneAppTests.swift in Sources */,
 				1A72B3B62A22C9D8006E3BAC /* CardListInteractorTests.swift in Sources */,
