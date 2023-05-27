@@ -22,7 +22,8 @@ class CardListInteractor: CardListInteractorProtocol {
     func fetchCards() {
         apiService.getAllCards { [weak self] result in
             switch result {
-            case .success(let cards):
+            case .success(let response):
+                let cards = response.values.flatMap { $0 }
                 self?.presenter?.presentCards(cards)
             case .failure(let error):
                 self?.presenter?.presentError(message: error.localizedDescription)
@@ -30,4 +31,5 @@ class CardListInteractor: CardListInteractorProtocol {
         }
     }
 }
+
 

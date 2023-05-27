@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CardListPresenterProtocol {
+protocol CardListPresenterProtocol: AnyObject {
     func fetchCards()
     func presentCards(_ cards: [CardListModels.Card])
     func presentError(message: String)
