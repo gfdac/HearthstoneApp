@@ -30,3 +30,20 @@ enum CardListModels {
         var cards: [Card]
     }
 }
+
+extension CardListModels.Card: Equatable {
+    static func == (lhs: CardListModels.Card, rhs: CardListModels.Card) -> Bool {
+        return lhs.cardId == rhs.cardId &&
+               lhs.name == rhs.name &&
+               lhs.flavor == rhs.flavor &&
+               lhs.description == rhs.description &&
+               lhs.cardSet == rhs.cardSet &&
+               lhs.type == rhs.type &&
+               lhs.faction == rhs.faction &&
+               lhs.rarity == rhs.rarity &&
+               lhs.attack == rhs.attack &&
+               lhs.cost == rhs.cost &&
+               lhs.health == rhs.health &&
+               lhs.image == rhs.image
+    }
+}
