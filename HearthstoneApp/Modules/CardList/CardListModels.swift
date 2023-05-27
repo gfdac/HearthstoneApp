@@ -7,11 +7,9 @@
 
 import Foundation
 
-import Foundation
-
 enum CardListModels {
     // Model para representar um card
-    struct Card {
+    struct Card: Decodable {
         let cardId: String
         let name: String
         let flavor: String

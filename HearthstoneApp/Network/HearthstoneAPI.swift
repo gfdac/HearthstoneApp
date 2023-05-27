@@ -7,21 +7,26 @@
 
 import Foundation
 
-class HearthstoneAPI {
+protocol HearthstoneAPIProtocol {
+    func getAllCards(completion: @escaping (Result<[String: [CardListModels.Card]], Error>) -> Void)
+}
+
+class HearthstoneAPI: HearthstoneAPIProtocol {
     private let networkService: NetworkService
-    private let decoder = JSONDecoder()
     
-    init(networkService: NetworkService = NetworkService()) {
+    init(networkService: NetworkService) {
         self.networkService = networkService
     }
     
-    func getAllCards(completion: @escaping (Result<[Card], Error>) -> Void) {
-        networkService.request(endpoint: "cards") { [weak self] result in
+    func getAllCards(completion: @escaping (Result<[String: [CardListModels.Card]], Error>) -> Void) {
+        let endpoint = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards"
+        
+        networkService.request(endpoint: endpoint) { result in
             switch result {
             case .success(let data):
                 do {
-                    let cards = try self?.decoder.decode([Card].self, from: data)
-                    completion(.success(cards ?? []))
+                    let response = try JSONDecoder().decode([String: [CardListModels.Card]].self, from: data)
+                    completion(.success(response))
                 } catch {
                     completion(.failure(error))
                 }
@@ -31,4 +36,5 @@ class HearthstoneAPI {
         }
     }
 }
+
 
