@@ -30,6 +30,7 @@
 		1A72B3B82A22CD10006E3BAC /* CardListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3B72A22CD10006E3BAC /* CardListPresenterTests.swift */; };
 		1A72B3BA2A22CE36006E3BAC /* CardListRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3B92A22CE36006E3BAC /* CardListRouterTests.swift */; };
 		1A72B3BC2A22CF18006E3BAC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3BB2A22CF18006E3BAC /* CardDetailViewController.swift */; };
+		1A72B3BE2A22CF8A006E3BAC /* CardDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3BD2A22CF8A006E3BAC /* CardDetailInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		1A72B3B72A22CD10006E3BAC /* CardListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListPresenterTests.swift; sourceTree = "<group>"; };
 		1A72B3B92A22CE36006E3BAC /* CardListRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListRouterTests.swift; sourceTree = "<group>"; };
 		1A72B3BB2A22CF18006E3BAC /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		1A72B3BD2A22CF8A006E3BAC /* CardDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 			children = (
 				1A72B3A92A22C036006E3BAC /* CardDetailModels.swift */,
 				1A72B3BB2A22CF18006E3BAC /* CardDetailViewController.swift */,
+				1A72B3BD2A22CF8A006E3BAC /* CardDetailInteractor.swift */,
 			);
 			path = CardDetail;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				1A72B3AA2A22C036006E3BAC /* CardDetailModels.swift in Sources */,
 				1A72B36E2A22A53A006E3BAC /* ViewController.swift in Sources */,
 				1A72B3B22A22C438006E3BAC /* CardListRouter.swift in Sources */,
+				1A72B3BE2A22CF8A006E3BAC /* CardDetailInteractor.swift in Sources */,
 				1A72B3AE2A22C21E006E3BAC /* CardListInteractor.swift in Sources */,
 				1A72B36A2A22A53A006E3BAC /* AppDelegate.swift in Sources */,
 				1A72B3B02A22C27A006E3BAC /* CardListPresenter.swift in Sources */,
