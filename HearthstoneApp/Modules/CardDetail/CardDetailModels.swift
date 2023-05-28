@@ -25,4 +25,9 @@ enum CardDetailModels {
         let health: Int
         let image: String
     }
+    
+    struct Error {
+        let message: String
+    }
+    
 }

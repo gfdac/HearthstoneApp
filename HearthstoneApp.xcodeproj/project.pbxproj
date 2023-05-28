@@ -33,6 +33,7 @@
 		1A72B3BE2A22CF8A006E3BAC /* CardDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3BD2A22CF8A006E3BAC /* CardDetailInteractor.swift */; };
 		1A72B3C02A22D0AD006E3BAC /* CardDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3BF2A22D0AD006E3BAC /* CardDetailPresenter.swift */; };
 		1A72B3C22A22D0D7006E3BAC /* CardDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3C12A22D0D7006E3BAC /* CardDetailRouter.swift */; };
+		1A72B3C42A22D39D006E3BAC /* CardDetailViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3C32A22D39D006E3BAC /* CardDetailViewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		1A72B3BD2A22CF8A006E3BAC /* CardDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailInteractor.swift; sourceTree = "<group>"; };
 		1A72B3BF2A22D0AD006E3BAC /* CardDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenter.swift; sourceTree = "<group>"; };
 		1A72B3C12A22D0D7006E3BAC /* CardDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailRouter.swift; sourceTree = "<group>"; };
+		1A72B3C32A22D39D006E3BAC /* CardDetailViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 				1A72B3BD2A22CF8A006E3BAC /* CardDetailInteractor.swift */,
 				1A72B3BF2A22D0AD006E3BAC /* CardDetailPresenter.swift */,
 				1A72B3C12A22D0D7006E3BAC /* CardDetailRouter.swift */,
+				1A72B3C32A22D39D006E3BAC /* CardDetailViewData.swift */,
 			);
 			path = CardDetail;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A72B3BC2A22CF18006E3BAC /* CardDetailViewController.swift in Sources */,
+				1A72B3C42A22D39D006E3BAC /* CardDetailViewData.swift in Sources */,
 				1A72B3B42A22C4E1006E3BAC /* CardListViewData.swift in Sources */,
 				1A72B3AA2A22C036006E3BAC /* CardDetailModels.swift in Sources */,
 				1A72B36E2A22A53A006E3BAC /* ViewController.swift in Sources */,
