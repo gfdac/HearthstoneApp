@@ -3,7 +3,6 @@
 //
 //  Created by Guh F on 27/05/23.
 //
-
 import Foundation
 
 protocol CardListPresenterProtocol: AnyObject {
@@ -24,9 +23,23 @@ class CardListPresenter: CardListPresenterProtocol {
         self.router = router
     }
     
+    //    func fetchCards() {
+    //        interactor.fetchCards()
+    //    }
+    
     func fetchCards() {
-        interactor.fetchCards()
+        view?.startLoadingIndicator()
+        interactor.fetchCards { [weak self] result in
+            self?.view?.stopLoadingIndicator()
+            switch result {
+            case .success(let categories):
+                self?.view?.displayCards(categories)
+            case .failure(let error):
+                self?.view?.displayError(message: error.localizedDescription)
+            }
+        }
     }
+    
     
     func presentCards(_ cards: [String: [CardListModels.Card]]) {
         view?.displayCards(cards)

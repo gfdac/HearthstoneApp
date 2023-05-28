@@ -10,11 +10,14 @@ protocol CardListViewProtocol: AnyObject {
     func displayCards(_ cards: [String: [CardListModels.Card]])
     func displayError(message: String)
     func navigateToCardDetail(card: CardListModels.Card)
+    func startLoadingIndicator()
+    func stopLoadingIndicator()
 }
 
 class CardListViewController: UIViewController, CardListViewProtocol {
     private var tableView: UITableView!
-    
+    private var activityIndicator: UIActivityIndicatorView!
+
     var presenter: CardListPresenterProtocol?
     var sectionData: [String] = []
     var cardData: [String: [CardListModels.Card]] = [:]
@@ -34,11 +37,29 @@ class CardListViewController: UIViewController, CardListViewProtocol {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         
+        activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
+        
         // Constraints
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    private func configureActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     private func setupPresenter() {
@@ -68,6 +89,20 @@ class CardListViewController: UIViewController, CardListViewProtocol {
     func navigateToCardDetail(card: CardListModels.Card) {
         let cardDetailViewController = CardDetailViewController()
         navigationController?.pushViewController(cardDetailViewController, animated: true)
+    }
+    
+    func startLoadingIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+            self.view.isUserInteractionEnabled = false
+        }
+    }
+    
+    func stopLoadingIndicator() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.view.isUserInteractionEnabled = true
+        }
     }
 }
 

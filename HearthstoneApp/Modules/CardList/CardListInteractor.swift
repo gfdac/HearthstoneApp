@@ -7,6 +7,7 @@
 import Foundation
 
 protocol CardListInteractorProtocol {
+    func fetchCards(completion: @escaping (Result<[String: [CardListModels.Card]], Error>) -> Void)
     func fetchCards()
 }
 
@@ -16,6 +17,17 @@ class CardListInteractor: CardListInteractorProtocol {
     
     init(apiService: HearthstoneAPIProtocol) {
         self.apiService = apiService
+    }
+    
+    func fetchCards(completion: @escaping (Result<[String: [CardListModels.Card]], Error>) -> Void) {
+        apiService.getAllCards { result in
+            switch result {
+            case .success(let categories):
+                completion(.success(categories))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
     
     func fetchCards() {
@@ -28,4 +40,5 @@ class CardListInteractor: CardListInteractorProtocol {
             }
         }
     }
+
 }
