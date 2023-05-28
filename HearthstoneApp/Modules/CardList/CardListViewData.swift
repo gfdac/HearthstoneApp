@@ -8,7 +8,7 @@ struct CardListViewData {
     let cardId: String?
     let name: String
     let flavor: String?
-    let description: String?
+    let text: String?
     let cardSet: String?
     let type: String?
     let faction: String?
@@ -22,7 +22,7 @@ struct CardListViewData {
         cardId = card.cardId
         name = card.name
         flavor = card.flavor ?? ""
-        description = card.description ?? ""
+        text = card.text ?? ""
         cardSet = card.cardSet ?? ""
         type = card.type ?? ""
         faction = card.faction ?? ""

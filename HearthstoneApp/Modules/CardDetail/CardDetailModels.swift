@@ -13,7 +13,7 @@ enum CardDetailModels {
         let cardId: String
         let name: String
         let flavor: String
-        let description: String
+        let text: String
         let cardSet: String
         let type: String
         let faction: String

@@ -26,7 +26,7 @@ struct CardDetailViewData {
         self.image = card.img ?? ""
         self.name = card.name
         self.flavor = card.flavor ?? ""
-        self.description = card.description ?? ""
+        self.description = card.text ?? ""
         self.cardSet = card.cardSet ?? ""
         self.type = card.type ?? ""
         self.faction = card.faction ?? ""

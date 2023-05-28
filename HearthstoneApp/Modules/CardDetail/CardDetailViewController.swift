@@ -24,61 +24,79 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
+        label.textAlignment = .right
         return label
     }()
     
     private let flavorLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
+        label.textAlignment = .right
         return label
     }()
     
-    private let descriptionLabel: UILabel = {
+    private let textLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
+        label.textAlignment = .right
         return label
     }()
     
     private let setLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
+        label.textAlignment = .right
         return label
     }()
     
     private let typeLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
+        label.textAlignment = .right
         return label
     }()
     
     private let factionLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
+        label.textAlignment = .right
         return label
     }()
     
     private let rarityLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
+        label.textAlignment = .right
         return label
     }()
     
     private let attackLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
+        label.textAlignment = .right
         return label
     }()
     
     private let costLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
+        label.textAlignment = .right
         return label
     }()
     
     private let healthLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
+        label.textAlignment = .right
         return label
     }()
     
@@ -110,15 +128,15 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let nameLabelStackView = createLabelStackView(label: "Name:", valueLabel: nameLabel)
-        let flavorLabelStackView = createLabelStackView(label: "Flavor:", valueLabel: flavorLabel)
-        let descriptionLabelStackView = createLabelStackView(label: "Description:", valueLabel: descriptionLabel)
-        let setLabelStackView = createLabelStackView(label: "Set:", valueLabel: setLabel)
-        let typeLabelStackView = createLabelStackView(label: "Type:", valueLabel: typeLabel)
-        let factionLabelStackView = createLabelStackView(label: "Faction:", valueLabel: factionLabel)
-        let rarityLabelStackView = createLabelStackView(label: "Rarity:", valueLabel: rarityLabel)
-        let attackLabelStackView = createLabelStackView(label: "Attack:", valueLabel: attackLabel)
-        let costLabelStackView = createLabelStackView(label: "Cost:", valueLabel: costLabel)
+        let nameLabelStackView = createLabelStackView(label: "Nome:", valueLabel: nameLabel)
+        let flavorLabelStackView = createLabelStackView(label: "Descrição:", valueLabel: flavorLabel)
+        let descriptionLabelStackView = createLabelStackView(label: "Descrição curta:", valueLabel: textLabel)
+        let setLabelStackView = createLabelStackView(label: "Set pertencente:", valueLabel: setLabel)
+        let typeLabelStackView = createLabelStackView(label: "Tipo:", valueLabel: typeLabel)
+        let factionLabelStackView = createLabelStackView(label: "Facção:", valueLabel: factionLabel)
+        let rarityLabelStackView = createLabelStackView(label: "Raridade:", valueLabel: rarityLabel)
+        let attackLabelStackView = createLabelStackView(label: "Ataque:", valueLabel: attackLabel)
+        let costLabelStackView = createLabelStackView(label: "Custo:", valueLabel: costLabel)
         let healthLabelStackView = createLabelStackView(label: "Health:", valueLabel: healthLabel)
         
         stackView.addArrangedSubview(cardImageView)
@@ -169,7 +187,7 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         cardImageDowloader(card)
         nameLabel.text = card.name
         flavorLabel.text = card.flavor ?? "Indefinido"
-        descriptionLabel.text = card.description ?? "Indefinido"
+        textLabel.text = card.text ?? "Indefinido"
         setLabel.text = card.cardSet ?? "Indefinido"
         typeLabel.text = card.type ?? "Indefinido"
         factionLabel.text = card.faction ?? "Indefinido"

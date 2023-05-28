@@ -13,7 +13,7 @@ enum CardListModels {
         let cardId: String?
         let name: String
         let flavor: String?
-        let description: String?
+        let text: String?
         let cardSet: String?
         let type: String?
         let faction: String?
@@ -29,7 +29,7 @@ enum CardListModels {
             cardId = try container.decodeIfPresent(String.self, forKey: .cardId)
             name = try container.decode(String.self, forKey: .name)
             flavor = try container.decodeIfPresent(String.self, forKey: .flavor)
-            description = try container.decodeIfPresent(String.self, forKey: .description)
+            text = try container.decodeIfPresent(String.self, forKey: .text)
             cardSet = try container.decodeIfPresent(String.self, forKey: .cardSet)
             type = try container.decodeIfPresent(String.self, forKey: .type)
             faction = try container.decodeIfPresent(String.self, forKey: .faction)
@@ -45,7 +45,7 @@ enum CardListModels {
             case cardId
             case name
             case flavor
-            case description
+            case text
             case cardSet
             case type
             case faction
@@ -69,7 +69,7 @@ extension CardListModels.Card: Equatable {
         return lhs.cardId == rhs.cardId &&
                lhs.name == rhs.name &&
                lhs.flavor == rhs.flavor &&
-               lhs.description == rhs.description &&
+               lhs.text == rhs.text &&
                lhs.cardSet == rhs.cardSet &&
                lhs.type == rhs.type &&
                lhs.faction == rhs.faction &&
