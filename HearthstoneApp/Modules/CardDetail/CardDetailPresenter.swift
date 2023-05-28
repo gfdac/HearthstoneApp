@@ -17,11 +17,9 @@ protocol CardDetailPresenterProtocol: AnyObject {
 class CardDetailPresenter: CardDetailPresenterProtocol {
 
     weak var view: CardDetailViewProtocol?
-//    var interactor: CardDetailInteractorProtocol?
     var card: CardListModels.Card?
 
     func presentCardDetail(_ card: CardListModels.Card) {
-//        let viewData = CardDetailViewData(card: card)
         view?.displayCardDetail(card)
     }
 
@@ -36,19 +34,5 @@ class CardDetailPresenter: CardDetailPresenterProtocol {
         }
         
         view?.displayCardDetail(card)
-//        interactor?.presentCardDetail()
     }
 }
-
-
-//
-//extension CardDetailPresenter: CardDetailInteractorOutputProtocol {
-//    func presentCardDetail(_ cardDetail: CardDetailModels.CardDetail) {
-//        view?.displayCardDetail(cardDetail)
-//    }
-//
-//    func presentError(message: String) {
-//        view?.displayError(message: message)
-//    }
-//}
-

@@ -13,11 +13,9 @@ protocol CardDetailInteractorProtocol {
 
 class CardDetailInteractor: CardDetailInteractorProtocol {
     weak var presenter: CardDetailPresenterProtocol?
-    let apiService: HearthstoneAPIProtocol
     let card: CardListModels.Card
     
-    init(apiService: HearthstoneAPIProtocol, card: CardListModels.Card) {
-        self.apiService = apiService
+    init(card: CardListModels.Card) {
         self.card = card
     }
     

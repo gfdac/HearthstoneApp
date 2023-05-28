@@ -5,6 +5,7 @@
 //  Created by Guh F on 27/05/23.
 //
 
+
 import UIKit
 
 protocol CardDetailViewProtocol: AnyObject {
@@ -109,17 +110,28 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
+        let nameLabelStackView = createLabelStackView(label: "Name:", valueLabel: nameLabel)
+        let flavorLabelStackView = createLabelStackView(label: "Flavor:", valueLabel: flavorLabel)
+        let descriptionLabelStackView = createLabelStackView(label: "Description:", valueLabel: descriptionLabel)
+        let setLabelStackView = createLabelStackView(label: "Set:", valueLabel: setLabel)
+        let typeLabelStackView = createLabelStackView(label: "Type:", valueLabel: typeLabel)
+        let factionLabelStackView = createLabelStackView(label: "Faction:", valueLabel: factionLabel)
+        let rarityLabelStackView = createLabelStackView(label: "Rarity:", valueLabel: rarityLabel)
+        let attackLabelStackView = createLabelStackView(label: "Attack:", valueLabel: attackLabel)
+        let costLabelStackView = createLabelStackView(label: "Cost:", valueLabel: costLabel)
+        let healthLabelStackView = createLabelStackView(label: "Health:", valueLabel: healthLabel)
+        
         stackView.addArrangedSubview(cardImageView)
-        stackView.addArrangedSubview(nameLabel)
-        stackView.addArrangedSubview(flavorLabel)
-        stackView.addArrangedSubview(descriptionLabel)
-        stackView.addArrangedSubview(setLabel)
-        stackView.addArrangedSubview(typeLabel)
-        stackView.addArrangedSubview(factionLabel)
-        stackView.addArrangedSubview(rarityLabel)
-        stackView.addArrangedSubview(attackLabel)
-        stackView.addArrangedSubview(costLabel)
-        stackView.addArrangedSubview(healthLabel)
+        stackView.addArrangedSubview(nameLabelStackView)
+        stackView.addArrangedSubview(flavorLabelStackView)
+        stackView.addArrangedSubview(descriptionLabelStackView)
+        stackView.addArrangedSubview(setLabelStackView)
+        stackView.addArrangedSubview(typeLabelStackView)
+        stackView.addArrangedSubview(factionLabelStackView)
+        stackView.addArrangedSubview(rarityLabelStackView)
+        stackView.addArrangedSubview(attackLabelStackView)
+        stackView.addArrangedSubview(costLabelStackView)
+        stackView.addArrangedSubview(healthLabelStackView)
         
         view.addSubview(stackView)
         
@@ -138,17 +150,33 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         navigationItem.title = "HearthstoneApp"
     }
     
+    private func createLabelStackView(label: String, valueLabel: UILabel) -> UIStackView {
+        let labelLabel = UILabel()
+        labelLabel.textColor = .white
+        labelLabel.text = label
+        
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.addArrangedSubview(labelLabel)
+        stackView.addArrangedSubview(valueLabel)
+        
+        return stackView
+    }
+    
+    
     func displayCardDetail(_ card: CardListModels.Card) {
+        cardImageDowloader(card)
         nameLabel.text = card.name
-//        flavorLabel.text = card.flavor
-//        descriptionLabel.text = card.description
-//        setLabel.text = card.cardSet
-//        typeLabel.text = card.type
-//        factionLabel.text = card.faction
-//        rarityLabel.text = card.rarity
-//        attackLabel.text = "\(card.attack)"
-//        costLabel.text = "\(card.cost)"
-//        healthLabel.text = "\(card.health)"
+        flavorLabel.text = card.flavor ?? "Indefinido"
+        descriptionLabel.text = card.description ?? "Indefinido"
+        setLabel.text = card.cardSet ?? "Indefinido"
+        typeLabel.text = card.type ?? "Indefinido"
+        factionLabel.text = card.faction ?? "Indefinido"
+        rarityLabel.text = card.rarity ?? "Indefinido"
+        attackLabel.text = card.attack != nil ? "\(card.attack!)" : "Indefinido"
+        costLabel.text = card.cost != nil ? "\(card.cost!)" : "Indefinido"
+        healthLabel.text = card.health != nil ? "\(card.health!)" : "Indefinido"
     }
     
     func displayError(message: String) {
@@ -156,5 +184,28 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    fileprivate func cardImageDowloader(_ card: CardListModels.Card) {
+        if let imageURLString = card.img, let imageURL = URL(string: imageURLString) {
+            DispatchQueue.global().async {
+                if let imageData = try? Data(contentsOf: imageURL), let image = UIImage(data: imageData) {
+                    let resizedImage = image.resized(toWidth: 200)
+                    DispatchQueue.main.async {
+                        self.cardImageView.image = resizedImage
+                    }
+                }
+            }
+        }
+    }
+}
+
+extension UIImage {
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
