@@ -7,12 +7,11 @@
 
 import XCTest
 @testable import HearthstoneApp
-
 class CardListInteractorTests: XCTestCase {
     var interactor: CardListInteractor!
     var presenterMock: CardListPresenterMock!
     var apiServiceMock: HearthstoneAPIMock!
-
+    
     override func setUp() {
         super.setUp()
         presenterMock = CardListPresenterMock()
@@ -20,14 +19,14 @@ class CardListInteractorTests: XCTestCase {
         interactor = CardListInteractor(apiService: apiServiceMock)
         interactor.presenter = presenterMock
     }
-
+    
     override func tearDown() {
         presenterMock = nil
         apiServiceMock = nil
         interactor = nil
         super.tearDown()
     }
-
+    
     func testFetchCards_Success() {
         // Given
         let expectedCards = [
@@ -45,7 +44,7 @@ class CardListInteractorTests: XCTestCase {
         XCTAssertEqual(presenterMock.presentedCards, expectedCards)
         XCTAssertFalse(presenterMock.presentErrorCalled)
     }
-
+    
     func testFetchCards_Failure() {
         // Given
         let expectedError = NSError(domain: "HearthstoneAPIError", code: 404, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
@@ -65,36 +64,68 @@ class CardListInteractorTests: XCTestCase {
 // MARK: - Mocks
 
 class CardListPresenterMock: CardListPresenterProtocol {
+    var view: CardListViewProtocol?
+    var interactor: CardListInteractorProtocol?
+    
     var fetchCardsCalled = false
     var presentCardsCalled = false
     var presentedCards: [CardListModels.Card] = []
     var presentErrorCalled = false
     var presentedErrorMessage = ""
-
+    var selectCardCalled = false
+    var selectedCard: CardListModels.Card?
+    
     func fetchCards() {
         fetchCardsCalled = true
     }
-
+    
     func presentCards(_ cards: [CardListModels.Card]) {
         presentCardsCalled = true
         presentedCards = cards
     }
-
+    
     func presentError(message: String) {
         presentErrorCalled = true
         presentedErrorMessage = message
     }
+    
+    func selectCard(_ card: CardListModels.Card) {
+        selectCardCalled = true
+        selectedCard = card
+    }
 }
 
-
 class HearthstoneAPIMock: HearthstoneAPIProtocol {
+
     var getAllCardsCalled = false
     var getAllCardsCompletionResult: Result<[String: [CardListModels.Card]], Error>?
-
+    
     func getAllCards(completion: @escaping (Result<[String: [CardListModels.Card]], Error>) -> Void) {
         getAllCardsCalled = true
         if let result = getAllCardsCompletionResult {
             completion(result)
         }
     }
+    
+//    func getCardDetail(cardId: String, completion: @escaping (Result<CardDetailModels.CardDetail, Error>) -> Void) {
+//        // Simulated implementation for getting card detail
+//        let cardDetail = CardDetailModels.CardDetail(cardId: cardId, name: "Card Name", flavor: "Card Flavor", description: "Card Description", cardSet: "Card Set", type: "Card Type", faction: "Card Faction", rarity: "Card Rarity", attack: 0, cost: 0, health: 0, image: "Arquivo.png")
+//        completion(.success(cardDetail))
+//    }
+    
+    func getAllCards(completion: @escaping (Result<[HearthstoneApp.CardListModels.Card], Error>) -> Void) {
+        // Simulated implementation for getting card detail
+//        let cardDetail = CardDetailModels.CardDetail(cardId: "cardId", name: "Card Name", flavor: "Card Flavor", description: "Card Description", cardSet: "Card Set", type: "Card Type", faction: "Card Faction", rarity: "Card Rarity", attack: 0, cost: 0, health: 0, image: "Arquivo.png")
+//        completion(.success(cardDetail))
+    }
+    
+    func getCardDetail(cardId: String, completion: @escaping (Result<HearthstoneApp.CardDetailModels.CardDetail, Error>) -> Void) {
+        
+        
+    }
+    
+    
+    
+    
+
 }

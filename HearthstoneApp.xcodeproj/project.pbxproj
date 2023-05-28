@@ -17,8 +17,8 @@
 		1A72B38B2A22A53C006E3BAC /* HearthstoneAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B38A2A22A53C006E3BAC /* HearthstoneAppUITests.swift */; };
 		1A72B38D2A22A53C006E3BAC /* HearthstoneAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B38C2A22A53C006E3BAC /* HearthstoneAppUITestsLaunchTests.swift */; };
 		1A72B3A02A22AF2D006E3BAC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B39F2A22AF2D006E3BAC /* NetworkService.swift */; };
-		1A72B3A22A22B0A6006E3BAC /* HearthstoneAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A12A22B0A6006E3BAC /* HearthstoneAPI.swift */; };
-		1A72B3A42A22B649006E3BAC /* HearthstoneAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A32A22B649006E3BAC /* HearthstoneAPITests.swift */; };
+		1A72B3A22A22B0A6006E3BAC /* HearthstoneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A12A22B0A6006E3BAC /* HearthstoneService.swift */; };
+		1A72B3A42A22B649006E3BAC /* HearthstoneServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A32A22B649006E3BAC /* HearthstoneServiceTests.swift */; };
 		1A72B3A72A22BFAB006E3BAC /* CardListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A62A22BFAB006E3BAC /* CardListModels.swift */; };
 		1A72B3AA2A22C036006E3BAC /* CardDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3A92A22C036006E3BAC /* CardDetailModels.swift */; };
 		1A72B3AC2A22C19D006E3BAC /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3AB2A22C19D006E3BAC /* CardListViewController.swift */; };
@@ -68,8 +68,8 @@
 		1A72B38A2A22A53C006E3BAC /* HearthstoneAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneAppUITests.swift; sourceTree = "<group>"; };
 		1A72B38C2A22A53C006E3BAC /* HearthstoneAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1A72B39F2A22AF2D006E3BAC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		1A72B3A12A22B0A6006E3BAC /* HearthstoneAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneAPI.swift; sourceTree = "<group>"; };
-		1A72B3A32A22B649006E3BAC /* HearthstoneAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneAPITests.swift; sourceTree = "<group>"; };
+		1A72B3A12A22B0A6006E3BAC /* HearthstoneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneService.swift; sourceTree = "<group>"; };
+		1A72B3A32A22B649006E3BAC /* HearthstoneServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneServiceTests.swift; sourceTree = "<group>"; };
 		1A72B3A62A22BFAB006E3BAC /* CardListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListModels.swift; sourceTree = "<group>"; };
 		1A72B3A92A22C036006E3BAC /* CardDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailModels.swift; sourceTree = "<group>"; };
 		1A72B3AB2A22C19D006E3BAC /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				1A72B39F2A22AF2D006E3BAC /* NetworkService.swift */,
-				1A72B3A12A22B0A6006E3BAC /* HearthstoneAPI.swift */,
+				1A72B3A12A22B0A6006E3BAC /* HearthstoneService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 		1A72B39E2A22A8D9006E3BAC /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1A72B3A32A22B649006E3BAC /* HearthstoneAPITests.swift */,
+				1A72B3A32A22B649006E3BAC /* HearthstoneServiceTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 				1A72B3AE2A22C21E006E3BAC /* CardListInteractor.swift in Sources */,
 				1A72B36A2A22A53A006E3BAC /* AppDelegate.swift in Sources */,
 				1A72B3B02A22C27A006E3BAC /* CardListPresenter.swift in Sources */,
-				1A72B3A22A22B0A6006E3BAC /* HearthstoneAPI.swift in Sources */,
+				1A72B3A22A22B0A6006E3BAC /* HearthstoneService.swift in Sources */,
 				1A72B3C02A22D0AD006E3BAC /* CardDetailPresenter.swift in Sources */,
 				1A72B3AC2A22C19D006E3BAC /* CardListViewController.swift in Sources */,
 				1A72B3A02A22AF2D006E3BAC /* NetworkService.swift in Sources */,
@@ -402,7 +402,7 @@
 			files = (
 				1A72B3B82A22CD10006E3BAC /* CardListPresenterTests.swift in Sources */,
 				1A72B3BA2A22CE36006E3BAC /* CardListRouterTests.swift in Sources */,
-				1A72B3A42A22B649006E3BAC /* HearthstoneAPITests.swift in Sources */,
+				1A72B3A42A22B649006E3BAC /* HearthstoneServiceTests.swift in Sources */,
 				1A72B3812A22A53C006E3BAC /* HearthstoneAppTests.swift in Sources */,
 				1A72B3B62A22C9D8006E3BAC /* CardListInteractorTests.swift in Sources */,
 			);

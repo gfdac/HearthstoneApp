@@ -58,6 +58,8 @@ class CardListPresenterTests: XCTestCase {
 // MARK: - Mocks
 
 class CardListViewMock: CardListViewProtocol {
+
+    
     var displayCardsCalled = false
     var displayedCards: [CardListModels.Card] = []
     var displayErrorCalled = false
@@ -71,5 +73,9 @@ class CardListViewMock: CardListViewProtocol {
     func displayError(message: String) {
         displayErrorCalled = true
         displayedErrorMessage = message
+    }
+    
+    func navigateToCardDetail(card: HearthstoneApp.CardListModels.Card) {
+            
     }
 }

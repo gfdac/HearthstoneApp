@@ -33,8 +33,8 @@ class CardListRouterTests: XCTestCase {
 
         // Then
         XCTAssertTrue(navigationControllerMock.pushViewControllerCalled)
-//        XCTAssertTrue(navigationControllerMock.pushedViewController is CardDetailViewController)
-//        let pushedViewController = navigationControllerMock.pushedViewController as? CardDetailViewController
+        XCTAssertTrue(navigationControllerMock.pushedViewController is CardDetailViewController)
+        let pushedViewController = navigationControllerMock.pushedViewController as? CardDetailViewController
 //        XCTAssertEqual(pushedViewController?.card, card)
     }
 }

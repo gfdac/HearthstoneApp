@@ -7,11 +7,9 @@
 
 import Foundation
 
-import Foundation
-
 enum CardDetailModels {
     // Model para representar os detalhes de um cartão
-    struct CardDetails {
+    struct CardDetail: Decodable {
         let cardId: String
         let name: String
         let flavor: String

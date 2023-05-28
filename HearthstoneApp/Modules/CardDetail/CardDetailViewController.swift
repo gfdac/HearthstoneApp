@@ -122,17 +122,17 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
     // Implementação do protocolo CardDetailViewProtocol
     
     func displayCardDetail(_ card: CardListModels.Card) {
-        cardImageView.image = UIImage(named: card.image)
+//        cardImageView.image = UIImage(named: card.image)
         nameLabel.text = card.name
-        flavorLabel.text = card.flavor
-        descriptionLabel.text = card.description
-        setLabel.text = card.cardSet
-        typeLabel.text = card.type
-        factionLabel.text = card.faction
-        rarityLabel.text = card.rarity
-        attackLabel.text = "\(card.attack)"
-        costLabel.text = "\(card.cost)"
-        healthLabel.text = "\(card.health)"
+//        flavorLabel.text = card.flavor
+//        descriptionLabel.text = card.description
+//        setLabel.text = card.cardSet
+//        typeLabel.text = card.type
+//        factionLabel.text = card.faction
+//        rarityLabel.text = card.rarity
+//        attackLabel.text = "\(card.attack)"
+//        costLabel.text = "\(card.cost)"
+//        healthLabel.text = "\(card.health)"
     }
     
     func displayError(message: String) {

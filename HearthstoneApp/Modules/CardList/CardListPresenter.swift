@@ -1,4 +1,3 @@
-//
 //  CardListPresenter.swift
 //  HearthstoneApp
 //
@@ -9,28 +8,35 @@ import Foundation
 
 protocol CardListPresenterProtocol: AnyObject {
     func fetchCards()
-    func presentCards(_ cards: [CardListModels.Card])
+    func presentCards(_ cards: [String: [CardListModels.Card]])
     func presentError(message: String)
+    func selectCard(_ card: CardListModels.Card)
 }
 
 class CardListPresenter: CardListPresenterProtocol {
     weak var view: CardListViewProtocol?
     var interactor: CardListInteractorProtocol
+    var router: CardListRouterProtocol?
     
-    init(interactor: CardListInteractorProtocol) {
+    init(view: CardListViewProtocol, interactor: CardListInteractorProtocol, router: CardListRouterProtocol) {
+        self.view = view
         self.interactor = interactor
+        self.router = router
     }
     
     func fetchCards() {
         interactor.fetchCards()
     }
     
-    func presentCards(_ cards: [CardListModels.Card]) {
+    func presentCards(_ cards: [String: [CardListModels.Card]]) {
         view?.displayCards(cards)
     }
     
     func presentError(message: String) {
         view?.displayError(message: message)
     }
+    
+    func selectCard(_ card: CardListModels.Card) {
+        router?.navigateToCardDetail(with: card)
+    }
 }
-

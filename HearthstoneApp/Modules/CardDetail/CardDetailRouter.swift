@@ -14,7 +14,9 @@ protocol CardDetailRouterProtocol {
 class CardDetailRouter: CardDetailRouterProtocol {
     static func createModule(with card: CardListModels.Card) -> UIViewController {
         let view = CardDetailViewController()
-        let interactor = CardDetailInteractor(apiService: HearthstoneAPIService(), card: card)
+        let networkService = NetworkService() 
+        let apiService = HearthstoneService(networkService: networkService)
+        let interactor = CardDetailInteractor(apiService: apiService, card: card)
         let presenter = CardDetailPresenter()
         let router = CardDetailRouter()
 
@@ -26,4 +28,3 @@ class CardDetailRouter: CardDetailRouterProtocol {
         return view
     }
 }
-
