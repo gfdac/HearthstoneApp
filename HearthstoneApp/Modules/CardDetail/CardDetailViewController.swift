@@ -15,70 +15,69 @@ protocol CardDetailViewProtocol: AnyObject {
 class CardDetailViewController: UIViewController, CardDetailViewProtocol {
     private let cardImageView: UIImageView = {
         let imageView = UIImageView()
-        // Configurar as propriedades do imageView
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        // Configurar as propriedades do label
         label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = .white
         return label
     }()
     
     private let flavorLabel: UILabel = {
         let label = UILabel()
-        // Configurar as propriedades do label
         label.numberOfLines = 0
+        label.textColor = .white
         return label
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        // Configurar as propriedades do label
+        label.textColor = .white
         return label
     }()
     
     private let setLabel: UILabel = {
         let label = UILabel()
-        // Configurar as propriedades do label
+        label.textColor = .white
         return label
     }()
     
     private let typeLabel: UILabel = {
         let label = UILabel()
-        // Configurar as propriedades do label
+        label.textColor = .white
         return label
     }()
     
     private let factionLabel: UILabel = {
         let label = UILabel()
-        // Configurar as propriedades do label
+        label.textColor = .white
         return label
     }()
     
     private let rarityLabel: UILabel = {
         let label = UILabel()
-        // Configurar as propriedades do label
+        label.textColor = .white
         return label
     }()
     
     private let attackLabel: UILabel = {
         let label = UILabel()
-        // Configurar as propriedades do label
+        label.textColor = .white
         return label
     }()
     
     private let costLabel: UILabel = {
         let label = UILabel()
-        // Configurar as propriedades do label
+        label.textColor = .white
         return label
     }()
     
     private let healthLabel: UILabel = {
         let label = UILabel()
-        // Configurar as propriedades do label
+        label.textColor = .white
         return label
     }()
     
@@ -98,11 +97,12 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        configureNavigationBar()
         presenter.viewDidLoad()
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -130,7 +130,13 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         ])
     }
     
-    // Implementação do protocolo CardDetailViewProtocol
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.barTintColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationItem.title = "HearthstoneApp"
+    }
     
     func displayCardDetail(_ card: CardListModels.Card) {
         nameLabel.text = card.name
