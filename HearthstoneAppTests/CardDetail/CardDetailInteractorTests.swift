@@ -8,10 +8,10 @@
 import XCTest
 @testable import HearthstoneApp
 
-class g: XCTestCase {
+class CardDetailInteractorTests: XCTestCase {
     var interactor: CardDetailInteractor!
     var presenterMock: CardDetailPresenterMock!
-    let card = CardListModels.Card(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", text: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, img: "Image 1")
+    let card = CardDetailModels.CardDetail(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", text: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, img: "Image 1")
 
     override func setUp() {
         super.setUp()
@@ -50,9 +50,9 @@ class g: XCTestCase {
 // MARK: - Mocks
 class CardDetailPresenterMock: CardDetailPresenterProtocol {
     var presentCardDetailCalled = false
-    var presentedCard: CardListModels.Card?
+    var presentedCard: CardDetailModels.CardDetail?
 
-    func presentCardDetail(_ card: CardListModels.Card) {
+    func presentCardDetail(_ card: CardDetailModels.CardDetail) {
         presentCardDetailCalled = true
         presentedCard = card
     }

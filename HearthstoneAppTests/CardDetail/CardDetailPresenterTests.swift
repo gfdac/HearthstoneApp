@@ -27,7 +27,7 @@ class CardDetailPresenterTests: XCTestCase {
 
     func testPresentCardDetail() {
         // Given
-        let card = CardListModels.Card(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", text: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, img: "Image 1")
+        let card = CardDetailModels.CardDetail(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", text: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, img: "Image 1")
 
         // When
         presenter.presentCardDetail(card)
@@ -51,7 +51,7 @@ class CardDetailPresenterTests: XCTestCase {
 
     func testViewDidLoadWithCard() {
         // Given
-        let card = CardListModels.Card(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", text: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, img: "Image 1")
+        let card = CardDetailModels.CardDetail(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", text: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, img: "Image 1")
         presenter.card = card
 
         // When
@@ -75,11 +75,11 @@ class CardDetailPresenterTests: XCTestCase {
 // MARK: - Mocks
 class CardDetailViewMock: CardDetailViewProtocol {
     var displayCardDetailCalled = false
-    var displayedCard: CardListModels.Card?
+    var displayedCard: CardDetailModels.CardDetail?
     var displayErrorCalled = false
     var errorMessage: String?
 
-    func displayCardDetail(_ card: CardListModels.Card) {
+    func displayCardDetail(_ card: CardDetailModels.CardDetail) {
         displayCardDetailCalled = true
         displayedCard = card
     }

@@ -121,6 +121,10 @@ class CardListViewMock: CardListViewProtocol {
         navigateToCardDetailCalled = true
         selectedCard = card
     }
+    
+    func endRefreshing() {
+        
+    }
 }
 
 class CardListInteractorMock: CardListInteractorProtocol {
