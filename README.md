@@ -11,7 +11,7 @@
 
 ## Key Features
 
-- **Card View**: Users can view a list of cards with different categories such as set, type, and faction.
+- **Card View**: Users can view a list of cards with different categories.
 - **Card Details**: Users can view the complete details of a card, including its image, text, rarity, statistics (attack, cost, and health), and additional information.
 - **Card Search**: Users can search for cards by name, making it easy to locate a specific card.
 - **Card Filtering**: The application offers filtering options to help users refine the list of cards based on desired set, type, and faction.
