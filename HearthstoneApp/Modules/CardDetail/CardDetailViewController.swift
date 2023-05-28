@@ -5,7 +5,6 @@
 //  Created by Guh F on 27/05/23.
 //
 
-
 import UIKit
 
 protocol CardDetailViewProtocol: AnyObject {
@@ -20,85 +19,16 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         return imageView
     }()
     
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private let flavorLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private let textLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private let setLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private let typeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private let factionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private let rarityLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private let attackLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private let costLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
-    
-    private let healthLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
-        label.textAlignment = .right
-        return label
-    }()
+    private lazy var nameLabel: UILabel = createLabel()
+    private lazy var flavorLabel: UILabel = createLabel()
+    private lazy var descriptionLabel: UILabel = createLabel()
+    private lazy var setLabel: UILabel = createLabel()
+    private lazy var typeLabel: UILabel = createLabel()
+    private lazy var factionLabel: UILabel = createLabel()
+    private lazy var rarityLabel: UILabel = createLabel()
+    private lazy var attackLabel: UILabel = createLabel()
+    private lazy var costLabel: UILabel = createLabel()
+    private lazy var healthLabel: UILabel = createLabel()
     
     private var presenter: CardDetailPresenterProtocol
     private var card: CardListModels.Card
@@ -130,7 +60,7 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         
         let nameLabelStackView = createLabelStackView(label: "Nome:", valueLabel: nameLabel)
         let flavorLabelStackView = createLabelStackView(label: "Descrição:", valueLabel: flavorLabel)
-        let descriptionLabelStackView = createLabelStackView(label: "Descrição curta:", valueLabel: textLabel)
+        let descriptionLabelStackView = createLabelStackView(label: "Descrição curta:", valueLabel: descriptionLabel)
         let setLabelStackView = createLabelStackView(label: "Set pertencente:", valueLabel: setLabel)
         let typeLabelStackView = createLabelStackView(label: "Tipo:", valueLabel: typeLabel)
         let factionLabelStackView = createLabelStackView(label: "Facção:", valueLabel: factionLabel)
@@ -182,12 +112,20 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         return stackView
     }
     
+    private func createLabel() -> UILabel {
+        let label = UILabel()
+        label.font = AppDesignSystem.Fonts.attributesTitle
+        label.textColor = AppDesignSystem.Colors.text
+        label.textAlignment = .right
+        return label
+    }
     
     func displayCardDetail(_ card: CardListModels.Card) {
         cardImageDowloader(card)
         nameLabel.text = card.name
         flavorLabel.text = card.flavor ?? "Indefinido"
-        textLabel.text = card.text ?? "Indefinido"
+//        descriptionLabel.text = card.text ?? "Indefinido"
+        descriptionLabel.setHTMLText(card.text ?? "Indefinido")
         setLabel.text = card.cardSet ?? "Indefinido"
         typeLabel.text = card.type ?? "Indefinido"
         factionLabel.text = card.faction ?? "Indefinido"
@@ -226,4 +164,56 @@ extension UIImage {
         draw(in: CGRect(origin: .zero, size: canvasSize))
         return UIGraphicsGetImageFromCurrentImageContext()
     }
+}
+
+extension UILabel {
+    func setHTMLText(_ htmlString: String) {
+        let textColor = AppDesignSystem.Colors.text
+        let font = AppDesignSystem.Fonts.attributesTitle
+        let textAlignment = NSTextAlignment.right
+        
+        guard let data = htmlString.data(using: .utf8) else {
+            self.text = htmlString
+            self.textColor = textColor
+            self.font = font
+            self.textAlignment = textAlignment
+            return
+        }
+        
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+        ]
+        
+        if let attributedString = try? NSMutableAttributedString(data: data, options: options, documentAttributes: nil) {
+            let fullRange = NSRange(location: 0, length: attributedString.length)
+            attributedString.addAttribute(.foregroundColor, value: textColor, range: fullRange)
+            attributedString.addAttribute(.font, value: AppDesignSystem.Fonts.attributesTitle, range: fullRange)
+            self.attributedText = attributedString
+            self.textAlignment = textAlignment
+            self.adjustHeightForHTMLText()
+        } else {
+            self.text = htmlString
+            self.textColor = textColor
+            self.font = font
+            self.textAlignment = textAlignment
+        }
+    }
+    
+    private func adjustHeightForHTMLText() {
+        guard let htmlText = self.attributedText else { return }
+        
+        let contentSize = self.sizeThatFits(CGSize(width: self.bounds.width, height: .greatestFiniteMagnitude))
+        let lineHeight = self.font.lineHeight
+        
+        // Define uma altura mínima para o campo de texto
+        let minHeight = lineHeight * 2
+        
+        // Calcula a altura necessária para exibir todo o conteúdo
+        let requiredHeight = max(contentSize.height, minHeight)
+        
+        // Atualiza a altura do campo de texto
+        self.frame.size.height = requiredHeight
+    }
+    
 }
