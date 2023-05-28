@@ -9,7 +9,7 @@ import Foundation
 
 enum CardListModels {
     // Model para representar um card
-    struct Card: Decodable {
+    struct Card: Decodable, Equatable {
         let cardId: String?
         let name: String
         let flavor: String?
@@ -22,6 +22,21 @@ enum CardListModels {
         let cost: Int?
         let health: Int?
         let img: String?
+        
+        static func == (lhs: Card, rhs: Card) -> Bool {
+            return lhs.cardId == rhs.cardId &&
+                   lhs.name == rhs.name &&
+                   lhs.flavor == rhs.flavor &&
+                   lhs.text == rhs.text &&
+                   lhs.cardSet == rhs.cardSet &&
+                   lhs.type == rhs.type &&
+                   lhs.faction == rhs.faction &&
+                   lhs.rarity == rhs.rarity &&
+                   lhs.attack == rhs.attack &&
+                   lhs.cost == rhs.cost &&
+                   lhs.health == rhs.health &&
+                   lhs.img == rhs.img
+        }
     }
     
     // Model para representar uma categoria de cards

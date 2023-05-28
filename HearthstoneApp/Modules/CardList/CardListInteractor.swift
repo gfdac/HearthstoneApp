@@ -8,7 +8,6 @@ import Foundation
 
 protocol CardListInteractorProtocol {
     func fetchCards(completion: @escaping (Result<[String: [CardListModels.Card]], Error>) -> Void)
-    func fetchCards()
 }
 
 class CardListInteractor: CardListInteractorProtocol {

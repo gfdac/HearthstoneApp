@@ -22,11 +22,7 @@ class CardListPresenter: CardListPresenterProtocol {
         self.interactor = interactor
         self.router = router
     }
-    
-    //    func fetchCards() {
-    //        interactor.fetchCards()
-    //    }
-    
+
     func fetchCards() {
         view?.startLoadingIndicator()
         interactor.fetchCards { [weak self] result in
