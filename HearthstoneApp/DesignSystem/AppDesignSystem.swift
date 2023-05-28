@@ -16,6 +16,7 @@ struct AppDesignSystem {
         static let navigationBarBackground = UIColor(red: 32/255, green: 34/255, blue: 37/255, alpha: 1.0)
         static let navigationBarTint = UIColor.white
         static let navigationBarTitle = UIColor.white
+        static let placeholder = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
     }
     
     struct Fonts {
