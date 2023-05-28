@@ -24,7 +24,6 @@ class HearthstoneServiceTests: XCTestCase {
     }
     
     func testGetAllCardsReturnsCards() {
-        // Mock JSON response from the Hearthstone API
         let jsonString = """
         {
             "Basic": [
@@ -63,7 +62,7 @@ class HearthstoneServiceTests: XCTestCase {
         """
         let mockData = jsonString.data(using: .utf8)
         mockNetworkService.mockData = mockData
-        mockNetworkService.expectedEndpoint = "https://api.hearthstone.com/cards" // Definir o endpoint esperado
+        mockNetworkService.expectedEndpoint = "https://api.hearthstone.com/cards"
 
         sut.getAllCards { result in
             switch result {
@@ -111,7 +110,7 @@ class HearthstoneServiceTests: XCTestCase {
         mockNetworkService.mockError = error
 
         let expectation = XCTestExpectation(description: "API failure")
-        expectation.isInverted = true // Inverte a expectativa para garantir que o bloco de conclusão não seja chamado
+        expectation.isInverted = true
 
         sut.getAllCards { result in
             switch result {

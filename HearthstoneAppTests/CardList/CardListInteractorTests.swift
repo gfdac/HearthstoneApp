@@ -4,7 +4,7 @@
 //
 //  Created by Guh F on 27/05/23.
 //
-// CardListInteractorTests.swift
+
 import XCTest
 @testable import HearthstoneApp
 
@@ -108,7 +108,6 @@ class HearthstoneAPIMock: HearthstoneAPIProtocol {
     }
     
     func getCardDetail(cardId: String, completion: @escaping (Result<CardDetailModels.CardDetail, Error>) -> Void) {
-        // Simulated implementation for getting card detail
         let cardDetail = CardDetailModels.CardDetail(cardId: cardId, name: "Card Name", flavor: "Card Flavor", text: "Card Description", cardSet: "Card Set", type: "Card Type", faction: "Card Faction", rarity: "Card Rarity", attack: 0, cost: 0, health: 0, img: "Card Image")
         completion(.success(cardDetail))
     }

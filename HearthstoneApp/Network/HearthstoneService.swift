@@ -45,7 +45,7 @@ class HearthstoneService: HearthstoneAPIProtocol {
 
             do {
                 let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase // Adicionado para converter as chaves para camelCase
+                decoder.keyDecodingStrategy = .convertFromSnakeCase 
                 let cardsDictionary = try decoder.decode([String: [CardListModels.Card]].self, from: data)
                 completion(.success(cardsDictionary))
             } catch {

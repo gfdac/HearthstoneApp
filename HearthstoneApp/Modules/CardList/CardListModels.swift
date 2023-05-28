@@ -8,7 +8,6 @@
 import Foundation
 
 enum CardListModels {
-    // Model para representar um card
     struct Card: Decodable, Equatable {
         let cardId: String?
         let name: String
@@ -39,7 +38,6 @@ enum CardListModels {
         }
     }
     
-    // Model para representar uma categoria de cards
     struct CardCategory {
         let categoryName: String
         var cards: [Card]

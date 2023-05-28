@@ -5,16 +5,10 @@
 //  Created by Guh F on 27/05/23.
 //
 
-//  CardDetailModels.swift
-//  HearthstoneApp
-//
-//  Created by Guh F on 27/05/23.
-//
-
 import Foundation
 
 enum CardDetailModels {
-    // Model para representar os detalhes de um cartão
+
     struct CardDetail: Decodable, Equatable {
         let cardId: String?
         let name: String
