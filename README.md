@@ -29,37 +29,37 @@ The project's file structure follows a modular organization, divided into differ
 - **Tests**: Contains the test files for different modules of the application, including unit tests and UI tests.
 
 HearthstoneApp
-├── CardList
-│   ├── CardListViewController.swift
-│   ├── CardListPresenter.swift
-│   ├── CardListInteractor.swift
-│   ├── CardListRouter.swift
-│   └── CardListModels.swift
-├── CardDetail
-│   ├── CardDetailViewController.swift
-│   ├── CardDetailPresenter.swift
-│   ├── CardDetailInteractor.swift
-│   ├── CardDetailRouter.swift
-│   └── CardDetailModels.swift
-├── Network
-│   ├── NetworkService.swift
-│   └── HearthstoneService.swift
-├── Extensions
-│   └── ...
-├── DesignSystem
-│   └── ...
-├── Tests
-│   ├── CardListTests
-│   │   ├── CardListViewControllerTests.swift
-│   │   ├── CardListPresenterTests.swift
-│   │   ├── CardListInteractorTests.swift
-│   │   └── CardListRouterTests.swift
-│   └── CardDetailTests
-│       ├── CardDetailViewControllerTests.swift
-│       ├── CardDetailPresenterTests.swift
-│       ├── CardDetailInteractorTests.swift
-│       └── CardDetailRouterTests.swift
-└── AppDelegate.swift
+- CardList
+  - CardListViewController.swift
+  - CardListPresenter.swift
+  - CardListInteractor.swift
+  - CardListRouter.swift
+  - CardListModels.swift
+- CardDetail
+  - CardDetailViewController.swift
+  - CardDetailPresenter.swift
+  - CardDetailInteractor.swift
+  - CardDetailRouter.swift
+  - CardDetailModels.swift
+- Network
+  - NetworkService.swift
+  - HearthstoneService.swift
+- Extensions
+  - ...
+- DesignSystem
+  - ...
+- Tests
+  - CardListTests
+    - CardListViewControllerTests.swift
+    - CardListPresenterTests.swift
+    - CardListInteractorTests.swift
+    - CardListRouterTests.swift
+  - CardDetailTests
+    - CardDetailViewControllerTests.swift
+    - CardDetailPresenterTests.swift
+    - CardDetailInteractorTests.swift
+    - CardDetailRouterTests.swift
+- AppDelegate.swift
 
 ## How to Run
 
