@@ -3,7 +3,6 @@
 //
 //  Created by Guh F on 27/05/23.
 //
-
 import UIKit
 
 protocol CardListViewProtocol: AnyObject {
@@ -13,14 +12,21 @@ protocol CardListViewProtocol: AnyObject {
     func startLoadingIndicator()
     func stopLoadingIndicator()
 }
-
 class CardListViewController: UIViewController, CardListViewProtocol {
     private var tableView: UITableView!
     private var activityIndicator: UIActivityIndicatorView!
+    private var searchController: UISearchController!
     
     var presenter: CardListPresenterProtocol?
     var sectionData: [String] = []
     var cardData: [String: [CardListModels.Card]] = [:]
+    var filteredData: [String: [CardListModels.Card]] = [:]
+    
+    var isSearchEnabled: Bool = false {
+        didSet {
+            searchController.searchBar.isUserInteractionEnabled = isSearchEnabled
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +34,7 @@ class CardListViewController: UIViewController, CardListViewProtocol {
         configureNavigationBar()
         configureTableView()
         configureActivityIndicator()
+        setupSearchController()
         setupPresenter()
         presenter?.fetchCards()
     }
@@ -70,6 +77,16 @@ class CardListViewController: UIViewController, CardListViewProtocol {
         ])
     }
     
+    private func setupSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        isSearchEnabled = false
+    }
+    
     private func setupPresenter() {
         let networkService = NetworkService()
         let apiService = HearthstoneService(networkService: networkService)
@@ -82,9 +99,11 @@ class CardListViewController: UIViewController, CardListViewProtocol {
     func displayCards(_ cards: [String: [CardListModels.Card]]) {
         cardData = cards
         sectionData = Array(cards.keys).sorted()
+        filteredData = cards
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.isSearchEnabled = true
         }
     }
     
@@ -127,7 +146,7 @@ extension CardListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionKey = sectionData[section]
-        return cardData[sectionKey]?.count ?? 0
+        return filteredData[sectionKey]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -137,7 +156,7 @@ extension CardListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CardTableViewCell", for: indexPath) as! CardTableViewCell
         let sectionKey = sectionData[indexPath.section]
-        if let cardsInSection = cardData[sectionKey] {
+        if let cardsInSection = filteredData[sectionKey] {
             let card = cardsInSection[indexPath.row]
             cell.configure(with: card)
         }
@@ -146,10 +165,30 @@ extension CardListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sectionKey = sectionData[indexPath.section]
-        if let cardsInSection = cardData[sectionKey] {
+        if let cardsInSection = filteredData[sectionKey] {
             let selectedCard = cardsInSection[indexPath.row]
             presenter?.selectCard(selectedCard)
         }
+    }
+}
+
+extension CardListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else {
+            return
+        }
+        
+        if searchText.isEmpty {
+            filteredData = cardData
+        } else {
+            filteredData = cardData.mapValues { cards in
+                cards.filter { card in
+                    card.name.localizedCaseInsensitiveContains(searchText)
+                }
+            }
+        }
+        
+        tableView.reloadData()
     }
 }
 
