@@ -77,9 +77,7 @@ The project has no external dependencies. All necessary classes and libraries ar
 
 ## Testing
 
-The application has a comprehensive suite of automated tests to
-
- ensure code quality and robustness. The tests are organized in the `Tests` folder and include unit tests and UI tests for the `CardList` and `CardDetail` modules.
+The application has a comprehensive suite of automated tests to ensure code quality and robustness. The tests are organized in the `Tests` folder and include unit tests and UI tests for the `CardList` and `CardDetail` modules.
 
 ## Design Principles
 
