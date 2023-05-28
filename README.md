@@ -28,42 +28,6 @@ The project's file structure follows a modular organization, divided into differ
 - **DesignSystem**: Contains the files related to the application's design system, such as colors, fonts, and sizes.
 - **Tests**: Contains the test files for different modules of the application, including unit tests and UI tests.
 
-The folder structure of the project is as follows:
-
-HearthstoneApp
-├── CardList
-│   ├── CardListViewController.swift
-│   ├── CardListPresenter.swift
-│   ├── CardListInteractor.swift
-│   ├── CardListRouter.swift
-│   └── CardListModels.swift
-├── CardDetail
-│   ├── CardDetailViewController.swift
-│   ├── CardDetailPresenter.swift
-│   ├── CardDetailInteractor.swift
-│   ├── CardDetailRouter.swift
-│   └── CardDetailModels.swift
-├── Network
-│   ├── NetworkService.swift
-│   └── HearthstoneService.swift
-├── Extensions
-│   └── ...
-├── DesignSystem
-│   └── ...
-├── Tests
-│   ├── CardListTests
-│   │   ├── CardListViewControllerTests.swift
-│   │   ├── CardListPresenterTests.swift
-│   │   ├── CardListInteractorTests.swift
-│   │   └── CardListRouterTests.swift
-│   └── CardDetailTests
-│       ├── CardDetailViewControllerTests.swift
-│       ├── CardDetailPresenterTests.swift
-│       ├── CardDetailInteractorTests.swift
-│       └── CardDetailRouterTests.swift
-└── AppDelegate.swift
-
-
 ## How to Run
 
 To run the application in your development environment, follow the steps below:
