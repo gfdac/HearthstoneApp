@@ -8,7 +8,7 @@
 import XCTest
 @testable import HearthstoneApp
 
-class CardDetailInteractorTests: XCTestCase {
+class g: XCTestCase {
     var interactor: CardDetailInteractor!
     var presenterMock: CardDetailPresenterMock!
     let card = CardListModels.Card(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", text: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, img: "Image 1")
