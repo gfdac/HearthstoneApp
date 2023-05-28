@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1A72B36A2A22A53A006E3BAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3692A22A53A006E3BAC /* AppDelegate.swift */; };
 		1A72B36C2A22A53A006E3BAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B36B2A22A53A006E3BAC /* SceneDelegate.swift */; };
-		1A72B36E2A22A53A006E3BAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B36D2A22A53A006E3BAC /* ViewController.swift */; };
 		1A72B3732A22A53C006E3BAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A72B3722A22A53C006E3BAC /* Assets.xcassets */; };
 		1A72B3762A22A53C006E3BAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A72B3742A22A53C006E3BAC /* LaunchScreen.storyboard */; };
 		1A72B3812A22A53C006E3BAC /* HearthstoneAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3802A22A53C006E3BAC /* HearthstoneAppTests.swift */; };
@@ -36,6 +35,7 @@
 		1AB77FF62A23B9FC003B4EA3 /* AppDesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB77FF52A23B9FC003B4EA3 /* AppDesignSystem.swift */; };
 		1AB77FF82A23EFDD003B4EA3 /* CardDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB77FF72A23EFDD003B4EA3 /* CardDetailPresenterTests.swift */; };
 		1AB77FFA2A23F11D003B4EA3 /* CardDetailRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB77FF92A23F11D003B4EA3 /* CardDetailRouterTests.swift */; };
+		1AB77FFC2A23F2D8003B4EA3 /* CardDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB77FFB2A23F2D8003B4EA3 /* CardDetailInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,6 @@
 		1A72B3662A22A53A006E3BAC /* HearthstoneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HearthstoneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A72B3692A22A53A006E3BAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A72B36B2A22A53A006E3BAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1A72B36D2A22A53A006E3BAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1A72B3722A22A53C006E3BAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A72B3752A22A53C006E3BAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A72B3772A22A53C006E3BAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +88,7 @@
 		1AB77FF52A23B9FC003B4EA3 /* AppDesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDesignSystem.swift; sourceTree = "<group>"; };
 		1AB77FF72A23EFDD003B4EA3 /* CardDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenterTests.swift; sourceTree = "<group>"; };
 		1AB77FF92A23F11D003B4EA3 /* CardDetailRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailRouterTests.swift; sourceTree = "<group>"; };
+		1AB77FFB2A23F2D8003B4EA3 /* CardDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +145,6 @@
 				1A72B39A2A22A89A006E3BAC /* Network */,
 				1A72B39B2A22A8A5006E3BAC /* Extensions */,
 				1AB77FF42A23B96C003B4EA3 /* DesignSystem */,
-				1A72B36D2A22A53A006E3BAC /* ViewController.swift */,
 				1A72B3722A22A53C006E3BAC /* Assets.xcassets */,
 				1A72B3742A22A53C006E3BAC /* LaunchScreen.storyboard */,
 				1A72B3772A22A53C006E3BAC /* Info.plist */,
@@ -213,6 +212,7 @@
 			children = (
 				1AB77FF72A23EFDD003B4EA3 /* CardDetailPresenterTests.swift */,
 				1AB77FF92A23F11D003B4EA3 /* CardDetailRouterTests.swift */,
+				1AB77FFB2A23F2D8003B4EA3 /* CardDetailInteractorTests.swift */,
 			);
 			path = CardDetail;
 			sourceTree = "<group>";
@@ -393,7 +393,6 @@
 				1A72B3C42A22D39D006E3BAC /* CardDetailViewData.swift in Sources */,
 				1A72B3B42A22C4E1006E3BAC /* CardListViewData.swift in Sources */,
 				1A72B3AA2A22C036006E3BAC /* CardDetailModels.swift in Sources */,
-				1A72B36E2A22A53A006E3BAC /* ViewController.swift in Sources */,
 				1A72B3B22A22C438006E3BAC /* CardListRouter.swift in Sources */,
 				1AB77FF62A23B9FC003B4EA3 /* AppDesignSystem.swift in Sources */,
 				1A72B3BE2A22CF8A006E3BAC /* CardDetailInteractor.swift in Sources */,
@@ -419,6 +418,7 @@
 				1A72B3A42A22B649006E3BAC /* HearthstoneServiceTests.swift in Sources */,
 				1AB77FFA2A23F11D003B4EA3 /* CardDetailRouterTests.swift in Sources */,
 				1A72B3812A22A53C006E3BAC /* HearthstoneAppTests.swift in Sources */,
+				1AB77FFC2A23F2D8003B4EA3 /* CardDetailInteractorTests.swift in Sources */,
 				1A72B3B62A22C9D8006E3BAC /* CardListInteractorTests.swift in Sources */,
 				1AB77FF82A23EFDD003B4EA3 /* CardDetailPresenterTests.swift in Sources */,
 			);
