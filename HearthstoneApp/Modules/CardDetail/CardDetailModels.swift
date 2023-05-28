@@ -21,7 +21,7 @@ enum CardDetailModels {
         let attack: Int
         let cost: Int
         let health: Int
-        let image: String
+        let img: String
     }
     
     struct Error {

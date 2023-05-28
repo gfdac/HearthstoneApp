@@ -4,9 +4,10 @@
 //
 //  Created by Guh F on 27/05/23.
 //
-
+// CardListInteractorTests.swift
 import XCTest
 @testable import HearthstoneApp
+
 class CardListInteractorTests: XCTestCase {
     var interactor: CardListInteractor!
     var presenterMock: CardListPresenterMock!
@@ -30,8 +31,8 @@ class CardListInteractorTests: XCTestCase {
     func testFetchCards_Success() {
         // Given
         let expectedCards = [
-            CardListModels.Card(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", description: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, image: "Image 1"),
-            CardListModels.Card(cardId: "cardId2", name: "Card 2", flavor: "Flavor 2", description: "Description 2", cardSet: "Set 2", type: "Type 2", faction: "Faction 2", rarity: "Rarity 2", attack: 2, cost: 2, health: 2, image: "Image 2")
+            CardListModels.Card(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", text: "Text 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, img: "Image 1"),
+            CardListModels.Card(cardId: "cardId2", name: "Card 2", flavor: "Flavor 2", text: "Text 2", cardSet: "Set 2", type: "Type 2", faction: "Faction 2", rarity: "Rarity 2", attack: 2, cost: 2, health: 2, img: "Image 2")
         ]
         apiServiceMock.getAllCardsCompletionResult = .success(["Basic": expectedCards])
         
@@ -79,9 +80,9 @@ class CardListPresenterMock: CardListPresenterProtocol {
         fetchCardsCalled = true
     }
     
-    func presentCards(_ cards: [CardListModels.Card]) {
+    func presentCards(_ cards: [String: [CardListModels.Card]]) {
         presentCardsCalled = true
-        presentedCards = cards
+        presentedCards = cards.flatMap { $0.value }
     }
     
     func presentError(message: String) {
@@ -96,7 +97,6 @@ class CardListPresenterMock: CardListPresenterProtocol {
 }
 
 class HearthstoneAPIMock: HearthstoneAPIProtocol {
-
     var getAllCardsCalled = false
     var getAllCardsCompletionResult: Result<[String: [CardListModels.Card]], Error>?
     
@@ -107,25 +107,9 @@ class HearthstoneAPIMock: HearthstoneAPIProtocol {
         }
     }
     
-//    func getCardDetail(cardId: String, completion: @escaping (Result<CardDetailModels.CardDetail, Error>) -> Void) {
-//        // Simulated implementation for getting card detail
-//        let cardDetail = CardDetailModels.CardDetail(cardId: cardId, name: "Card Name", flavor: "Card Flavor", description: "Card Description", cardSet: "Card Set", type: "Card Type", faction: "Card Faction", rarity: "Card Rarity", attack: 0, cost: 0, health: 0, image: "Arquivo.png")
-//        completion(.success(cardDetail))
-//    }
-    
-    func getAllCards(completion: @escaping (Result<[HearthstoneApp.CardListModels.Card], Error>) -> Void) {
+    func getCardDetail(cardId: String, completion: @escaping (Result<CardDetailModels.CardDetail, Error>) -> Void) {
         // Simulated implementation for getting card detail
-//        let cardDetail = CardDetailModels.CardDetail(cardId: "cardId", name: "Card Name", flavor: "Card Flavor", description: "Card Description", cardSet: "Card Set", type: "Card Type", faction: "Card Faction", rarity: "Card Rarity", attack: 0, cost: 0, health: 0, image: "Arquivo.png")
-//        completion(.success(cardDetail))
+        let cardDetail = CardDetailModels.CardDetail(cardId: cardId, name: "Card Name", flavor: "Card Flavor", text: "Card Description", cardSet: "Card Set", type: "Card Type", faction: "Card Faction", rarity: "Card Rarity", attack: 0, cost: 0, health: 0, img: "Card Image")
+        completion(.success(cardDetail))
     }
-    
-    func getCardDetail(cardId: String, completion: @escaping (Result<HearthstoneApp.CardDetailModels.CardDetail, Error>) -> Void) {
-        
-        
-    }
-    
-    
-    
-    
-
 }

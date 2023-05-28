@@ -9,7 +9,7 @@ import Foundation
 
 struct CardDetailViewData {
     let cardId: String
-    let image: String
+    let img: String
     let name: String
     let flavor: String
     let description: String
@@ -23,7 +23,7 @@ struct CardDetailViewData {
     
     init(card: CardListModels.Card) {
         self.cardId = card.cardId ?? ""
-        self.image = card.img ?? ""
+        self.img = card.img ?? ""
         self.name = card.name
         self.flavor = card.flavor ?? ""
         self.description = card.text ?? ""

@@ -28,8 +28,8 @@ class CardListPresenterTests: XCTestCase {
     func testPresentCards() {
         // Given
         let cards = [
-            CardListModels.Card(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", description: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, image: "Image 1"),
-            CardListModels.Card(cardId: "cardId2", name: "Card 2", flavor: "Flavor 2", description: "Description 2", cardSet: "Set 2", type: "Type 2", faction: "Faction 2", rarity: "Rarity 2", attack: 2, cost: 2, health: 2, image: "Image 2")
+            CardListModels.Card(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", description: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, img: "Image 1"),
+            CardListModels.Card(cardId: "cardId2", name: "Card 2", flavor: "Flavor 2", description: "Description 2", cardSet: "Set 2", type: "Type 2", faction: "Faction 2", rarity: "Rarity 2", attack: 2, cost: 2, health: 2, img: "Image 2")
         ]
 
         // When

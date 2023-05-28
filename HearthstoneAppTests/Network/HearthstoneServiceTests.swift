@@ -54,7 +54,7 @@ class HearthstoneServiceTests: XCTestCase {
                     "attack": 1,
                     "cost": 1,
                     "health": 1,
-                    "image": "Image 1"
+                    "img": "Image 1"
                 },
                 {
                     "cardId": "cardId2",
@@ -68,7 +68,7 @@ class HearthstoneServiceTests: XCTestCase {
                     "attack": 2,
                     "cost": 2,
                     "health": 2,
-                    "image": "Image 2"
+                    "img": "Image 2"
                 }
             ],
             "Classic": [],
@@ -87,7 +87,7 @@ class HearthstoneServiceTests: XCTestCase {
                 XCTAssertEqual(card1.cardId, "cardId1")
                 XCTAssertEqual(card1.name, "Card 1")
                 XCTAssertEqual(card1.flavor, "Flavor 1")
-                XCTAssertEqual(card1.description, "Description 1")
+                XCTAssertEqual(card1.text, "Description 1")
                 XCTAssertEqual(card1.cardSet, "Set 1")
                 XCTAssertEqual(card1.type, "Type 1")
                 XCTAssertEqual(card1.faction, "Faction 1")
@@ -95,13 +95,13 @@ class HearthstoneServiceTests: XCTestCase {
                 XCTAssertEqual(card1.attack, 1)
                 XCTAssertEqual(card1.cost, 1)
                 XCTAssertEqual(card1.health, 1)
-                XCTAssertEqual(card1.image, "Image 1")
+                XCTAssertEqual(card1.img, "Image 1")
                 
                 let card2 = cards[1]
                 XCTAssertEqual(card2.cardId, "cardId2")
                 XCTAssertEqual(card2.name, "Card 2")
                 XCTAssertEqual(card2.flavor, "Flavor 2")
-                XCTAssertEqual(card2.description, "Description 2")
+                XCTAssertEqual(card2.text, "Description 2")
                 XCTAssertEqual(card2.cardSet, "Set 2")
                 XCTAssertEqual(card2.type, "Type 2")
                 XCTAssertEqual(card2.faction, "Faction 2")
@@ -109,7 +109,7 @@ class HearthstoneServiceTests: XCTestCase {
                 XCTAssertEqual(card2.attack, 2)
                 XCTAssertEqual(card2.cost, 2)
                 XCTAssertEqual(card2.health, 2)
-                XCTAssertEqual(card2.image, "Image 2")
+                XCTAssertEqual(card2.img, "Image 2")
                 
             case .failure(let error):
                 XCTFail("Error should not occur: \(error)")

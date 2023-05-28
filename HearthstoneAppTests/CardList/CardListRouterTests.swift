@@ -26,7 +26,7 @@ class CardListRouterTests: XCTestCase {
 
     func testNavigateToCardDetail() {
         // Given
-        let card = CardListModels.Card(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", description: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, image: "Image 1")
+        let card = CardListModels.Card(cardId: "cardId1", name: "Card 1", flavor: "Flavor 1", description: "Description 1", cardSet: "Set 1", type: "Type 1", faction: "Faction 1", rarity: "Rarity 1", attack: 1, cost: 1, health: 1, img: "Image 1")
 
         // When
         router.navigateToCardDetail(with: card)

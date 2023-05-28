@@ -7,16 +7,8 @@
 
 import Foundation
 
-//protocol HearthstoneAPIProtocol {
-////    func getAllCards(completion: @escaping (Result<[CardListModels.Card], Error>) -> Void)
-//    func getAllCards(completion: @escaping (Result<[String: [CardListModels.Card]], Error>) -> Void)
-//    func getCardDetail(cardId: String, completion: @escaping (Result<CardDetailModels.CardDetail, Error>) -> Void)
-//}
-
-
 protocol HearthstoneAPIProtocol {
     func getAllCards(completion: @escaping (Result<[String: [CardListModels.Card]], Error>) -> Void)
-    func getCardDetail(cardId: String, completion: @escaping (Result<CardDetailModels.CardDetail, Error>) -> Void)
 }
 
 
@@ -35,32 +27,6 @@ class HearthstoneService: HearthstoneAPIProtocol {
         request.addValue("omgvamp-hearthstone-v1.p.rapidapi.com", forHTTPHeaderField: "X-RapidAPI-Host")
         return request
     }
-    
-//    func getAllCards(completion: @escaping (Result<[CardListModels.Card], Error>) -> Void) {
-//        let urlPath = "/cards"
-//        let request = buildRequest(urlPath: urlPath)
-//
-//        URLSession.shared.dataTask(with: request) { (data, response, error) in
-//            if let error = error {
-//                completion(.failure(error))
-//                return
-//            }
-//
-//            guard let data = data else {
-//                completion(.failure(HearthstoneAPIError.invalidData))
-//                return
-//            }
-//
-//            do {
-//                let decoder = JSONDecoder()
-//                let cards = try decoder.decode([CardListModels.Card].self, from: data)
-//                completion(.success(cards))
-//            } catch {
-//                completion(.failure(error))
-//            }
-//        }.resume()
-//    }
-    
     
     func getAllCards(completion: @escaping (Result<[String: [CardListModels.Card]], Error>) -> Void) {
         let urlPath = "/cards"
@@ -88,10 +54,6 @@ class HearthstoneService: HearthstoneAPIProtocol {
         }.resume()
     }
 
-    
-    
-    
-    
     func getCardDetail(cardId: String, completion: @escaping (Result<CardDetailModels.CardDetail, Error>) -> Void) {
         let urlPath = "/cards/\(cardId)"
         let request = buildRequest(urlPath: urlPath)
