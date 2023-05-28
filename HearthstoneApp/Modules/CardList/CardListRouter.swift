@@ -21,9 +21,11 @@ class CardListRouter: CardListRouterProtocol {
     func navigateToCardDetail(with card: CardListModels.Card) {
         let presenter = CardDetailPresenter()
         let cardDetailVC = CardDetailViewController(presenter: presenter, card: card)
-        presenter.card = card
+        
+        presenter.card = CardDetailModels.CardDetail(cardId: card.cardId, name: card.name, flavor: card.flavor, text: card.text, cardSet: card.cardSet, type: card.type, faction: card.faction, rarity: card.rarity, attack: card.attack, cost: card.cost, health: card.health, img: card.img)
+        
         presenter.view = cardDetailVC
-
+        
         viewController?.navigationController?.pushViewController(cardDetailVC, animated: true)
     }
 }

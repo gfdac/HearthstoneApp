@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CardDetailViewProtocol: AnyObject {
-    func displayCardDetail(_ card: CardListModels.Card)
+    func displayCardDetail(_ card: CardDetailModels.CardDetail)
     func displayError(message: String)
 }
 
@@ -123,7 +123,7 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         return label
     }
     
-    func displayCardDetail(_ card: CardListModels.Card) {
+    func displayCardDetail(_ card: CardDetailModels.CardDetail) {
         cardImageDowloader(card)
         nameLabel.text = card.name
         flavorLabel.text = card.flavor ?? undefinedText
@@ -144,7 +144,7 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         present(alertController, animated: true, completion: nil)
     }
     
-    fileprivate func cardImageDowloader(_ card: CardListModels.Card) {
+    fileprivate func cardImageDowloader(_ card: CardDetailModels.CardDetail) {
         if let imageURLString = card.img, let imageURL = URL(string: imageURLString) {
             DispatchQueue.global().async {
                 if let imageData = try? Data(contentsOf: imageURL), let image = UIImage(data: imageData) {

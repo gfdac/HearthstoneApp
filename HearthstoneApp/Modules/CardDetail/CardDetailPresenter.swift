@@ -8,8 +8,7 @@
 import Foundation
 
 protocol CardDetailPresenterProtocol: AnyObject {
-    //TODO: os models aqui deveriam ser outros, mas ta..
-    func presentCardDetail(_ cardDetail: CardListModels.Card)
+    func presentCardDetail(_ cardDetail: CardDetailModels.CardDetail)
     func presentError(message: String)
     func viewDidLoad()
 }
@@ -17,9 +16,9 @@ protocol CardDetailPresenterProtocol: AnyObject {
 class CardDetailPresenter: CardDetailPresenterProtocol {
 
     weak var view: CardDetailViewProtocol?
-    var card: CardListModels.Card?
+    var card: CardDetailModels.CardDetail?
 
-    func presentCardDetail(_ card: CardListModels.Card) {
+    func presentCardDetail(_ card: CardDetailModels.CardDetail) {
         view?.displayCardDetail(card)
     }
 
@@ -35,6 +34,5 @@ class CardDetailPresenter: CardDetailPresenterProtocol {
         
         view?.displayCardDetail(card)
     }
-    
-    
+        
 }

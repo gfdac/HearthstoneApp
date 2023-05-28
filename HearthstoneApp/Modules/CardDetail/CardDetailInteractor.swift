@@ -13,9 +13,9 @@ protocol CardDetailInteractorProtocol {
 
 class CardDetailInteractor: CardDetailInteractorProtocol {
     weak var presenter: CardDetailPresenterProtocol?
-    let card: CardListModels.Card
+    let card: CardDetailModels.CardDetail
     
-    init(card: CardListModels.Card) {
+    init(card: CardDetailModels.CardDetail) {
         self.card = card
     }
     
