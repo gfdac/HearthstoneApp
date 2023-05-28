@@ -31,6 +31,8 @@
 		1A72B3BA2A22CE36006E3BAC /* CardListRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3B92A22CE36006E3BAC /* CardListRouterTests.swift */; };
 		1A72B3BC2A22CF18006E3BAC /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3BB2A22CF18006E3BAC /* CardDetailViewController.swift */; };
 		1A72B3BE2A22CF8A006E3BAC /* CardDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3BD2A22CF8A006E3BAC /* CardDetailInteractor.swift */; };
+		1A72B3C02A22D0AD006E3BAC /* CardDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3BF2A22D0AD006E3BAC /* CardDetailPresenter.swift */; };
+		1A72B3C22A22D0D7006E3BAC /* CardDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A72B3C12A22D0D7006E3BAC /* CardDetailRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		1A72B3B92A22CE36006E3BAC /* CardListRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListRouterTests.swift; sourceTree = "<group>"; };
 		1A72B3BB2A22CF18006E3BAC /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		1A72B3BD2A22CF8A006E3BAC /* CardDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailInteractor.swift; sourceTree = "<group>"; };
+		1A72B3BF2A22D0AD006E3BAC /* CardDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailPresenter.swift; sourceTree = "<group>"; };
+		1A72B3C12A22D0D7006E3BAC /* CardDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,8 @@
 				1A72B3A92A22C036006E3BAC /* CardDetailModels.swift */,
 				1A72B3BB2A22CF18006E3BAC /* CardDetailViewController.swift */,
 				1A72B3BD2A22CF8A006E3BAC /* CardDetailInteractor.swift */,
+				1A72B3BF2A22D0AD006E3BAC /* CardDetailPresenter.swift */,
+				1A72B3C12A22D0D7006E3BAC /* CardDetailRouter.swift */,
 			);
 			path = CardDetail;
 			sourceTree = "<group>";
@@ -377,10 +383,12 @@
 				1A72B36A2A22A53A006E3BAC /* AppDelegate.swift in Sources */,
 				1A72B3B02A22C27A006E3BAC /* CardListPresenter.swift in Sources */,
 				1A72B3A22A22B0A6006E3BAC /* HearthstoneAPI.swift in Sources */,
+				1A72B3C02A22D0AD006E3BAC /* CardDetailPresenter.swift in Sources */,
 				1A72B3AC2A22C19D006E3BAC /* CardListViewController.swift in Sources */,
 				1A72B3A02A22AF2D006E3BAC /* NetworkService.swift in Sources */,
 				1A72B36C2A22A53A006E3BAC /* SceneDelegate.swift in Sources */,
 				1A72B3A72A22BFAB006E3BAC /* CardListModels.swift in Sources */,
+				1A72B3C22A22D0D7006E3BAC /* CardDetailRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
