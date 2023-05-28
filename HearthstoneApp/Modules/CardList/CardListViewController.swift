@@ -17,17 +17,29 @@ protocol CardListViewProtocol: AnyObject {
 class CardListViewController: UIViewController, CardListViewProtocol {
     private var tableView: UITableView!
     private var activityIndicator: UIActivityIndicatorView!
-
+    
     var presenter: CardListPresenterProtocol?
     var sectionData: [String] = []
     var cardData: [String: [CardListModels.Card]] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(red: 27/255, green: 27/255, blue: 28/255, alpha: 1.0)
+        configureNavigationBar()
         configureTableView()
         configureActivityIndicator()
         setupPresenter()
         presenter?.fetchCards()
+    }
+    
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 32/255, green: 34/255, blue: 37/255, alpha: 1.0)
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)
+        ]
+        navigationItem.title = "HearthstoneApp"
     }
     
     private func configureTableView() {
@@ -36,8 +48,9 @@ class CardListViewController: UIViewController, CardListViewProtocol {
         tableView.dataSource = self
         tableView.register(CardTableViewCell.self, forCellReuseIdentifier: "CardTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .clear // Define o fundo da tabela como transparente
         view.addSubview(tableView)
-
+        
         // Constraints
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -49,10 +62,11 @@ class CardListViewController: UIViewController, CardListViewProtocol {
         
         activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.color = .white // Defina a cor desejada para o indicador de atividade
         view.addSubview(activityIndicator)
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-
+        
     }
     
     private func setupPresenter() {
@@ -87,7 +101,7 @@ class CardListViewController: UIViewController, CardListViewProtocol {
         let cardDetailViewController = CardDetailRouter.createModule(with: card)
         navigationController.pushViewController(cardDetailViewController, animated: true)
     }
-
+    
     
     func startLoadingIndicator() {
         DispatchQueue.main.async {
@@ -143,11 +157,13 @@ class CardTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureNameLabel()
+        configureDarkModeAppearance()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureNameLabel()
+        configureDarkModeAppearance()
     }
     
     private func configureNameLabel() {
@@ -158,12 +174,48 @@ class CardTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
         ])
+        
+        nameLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        nameLabel.textColor = .white
     }
     
     func configure(with card: CardListModels.Card) {
         nameLabel.text = card.name
+    }
+    
+    private func configureDarkModeAppearance() {
+        backgroundColor = .black
+        contentView.backgroundColor = .black
+    }
+}
+
+extension CardListViewController {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor(red: 32/255, green: 34/255, blue: 37/255, alpha: 1.0)
+        
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        titleLabel.text = sectionData[section]
+        
+        headerView.addSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
+            titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 8),
+            titleLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -8)
+        ])
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 48
     }
 }
