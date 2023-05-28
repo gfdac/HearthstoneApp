@@ -33,6 +33,8 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
     private var presenter: CardDetailPresenterProtocol
     private var card: CardListModels.Card
     
+    private let undefinedText = AppDesignSystem.Strings.undefinedText
+    
     init(presenter: CardDetailPresenterProtocol, card: CardListModels.Card) {
         self.presenter = presenter
         self.card = card
@@ -94,13 +96,13 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = .black
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationItem.title = "HearthstoneApp"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: AppDesignSystem.Colors.text]
+        navigationItem.title = AppDesignSystem.Strings.appTitle
     }
     
     private func createLabelStackView(label: String, valueLabel: UILabel) -> UIStackView {
         let labelLabel = UILabel()
-        labelLabel.textColor = .white
+        labelLabel.textColor = AppDesignSystem.Colors.text
         labelLabel.text = label
         
         let stackView = UIStackView()
@@ -117,22 +119,22 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         label.font = AppDesignSystem.Fonts.attributesTitle
         label.textColor = AppDesignSystem.Colors.text
         label.textAlignment = .right
+        label.numberOfLines = 0
         return label
     }
     
     func displayCardDetail(_ card: CardListModels.Card) {
         cardImageDowloader(card)
         nameLabel.text = card.name
-        flavorLabel.text = card.flavor ?? "Indefinido"
-//        descriptionLabel.text = card.text ?? "Indefinido"
-        descriptionLabel.setHTMLText(card.text ?? "Indefinido")
-        setLabel.text = card.cardSet ?? "Indefinido"
-        typeLabel.text = card.type ?? "Indefinido"
-        factionLabel.text = card.faction ?? "Indefinido"
-        rarityLabel.text = card.rarity ?? "Indefinido"
-        attackLabel.text = card.attack != nil ? "\(card.attack!)" : "Indefinido"
-        costLabel.text = card.cost != nil ? "\(card.cost!)" : "Indefinido"
-        healthLabel.text = card.health != nil ? "\(card.health!)" : "Indefinido"
+        flavorLabel.text = card.flavor ?? undefinedText
+        descriptionLabel.setHTMLText(card.text ?? undefinedText)
+        setLabel.text = card.cardSet ?? undefinedText
+        typeLabel.text = card.type ?? undefinedText
+        factionLabel.text = card.faction ?? undefinedText
+        rarityLabel.text = card.rarity ?? undefinedText
+        attackLabel.text = card.attack != nil ? "\(card.attack!)" : undefinedText
+        costLabel.text = card.cost != nil ? "\(card.cost!)" : undefinedText
+        healthLabel.text = card.health != nil ? "\(card.health!)" : undefinedText
     }
     
     func displayError(message: String) {
@@ -188,10 +190,9 @@ extension UILabel {
         if let attributedString = try? NSMutableAttributedString(data: data, options: options, documentAttributes: nil) {
             let fullRange = NSRange(location: 0, length: attributedString.length)
             attributedString.addAttribute(.foregroundColor, value: textColor, range: fullRange)
-            attributedString.addAttribute(.font, value: AppDesignSystem.Fonts.attributesTitle, range: fullRange)
+            attributedString.addAttribute(.font, value: font, range: fullRange)
             self.attributedText = attributedString
             self.textAlignment = textAlignment
-            self.adjustHeightForHTMLText()
         } else {
             self.text = htmlString
             self.textColor = textColor
@@ -199,21 +200,4 @@ extension UILabel {
             self.textAlignment = textAlignment
         }
     }
-    
-    private func adjustHeightForHTMLText() {
-        guard let htmlText = self.attributedText else { return }
-        
-        let contentSize = self.sizeThatFits(CGSize(width: self.bounds.width, height: .greatestFiniteMagnitude))
-        let lineHeight = self.font.lineHeight
-        
-        // Define uma altura mínima para o campo de texto
-        let minHeight = lineHeight * 2
-        
-        // Calcula a altura necessária para exibir todo o conteúdo
-        let requiredHeight = max(contentSize.height, minHeight)
-        
-        // Atualiza a altura do campo de texto
-        self.frame.size.height = requiredHeight
-    }
-    
 }

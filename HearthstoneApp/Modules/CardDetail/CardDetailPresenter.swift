@@ -35,4 +35,6 @@ class CardDetailPresenter: CardDetailPresenterProtocol {
         
         view?.displayCardDetail(card)
     }
+    
+    
 }

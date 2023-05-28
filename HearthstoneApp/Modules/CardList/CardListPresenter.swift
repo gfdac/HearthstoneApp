@@ -35,7 +35,9 @@ class CardListPresenter: CardListPresenterProtocol {
             case .success(let categories):
                 self?.view?.displayCards(categories)
             case .failure(let error):
+                
                 self?.view?.displayError(message: error.localizedDescription)
+                
             }
         }
     }
