@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CardDetailInteractorProtocol {
-    func fetchCardDetail()
+    func presentCardDetail()
 }
 
 class CardDetailInteractor: CardDetailInteractorProtocol {
@@ -21,17 +21,8 @@ class CardDetailInteractor: CardDetailInteractorProtocol {
         self.card = card
     }
     
-    func fetchCardDetail() {
-        // Use a API do Hearthstone para buscar os detalhes do cartão usando o cardId
-//        apiService.getCardDetail(cardId: card.cardId) { [weak self] result in
-//            switch result {
-//            case .success(let cardDetail):
-//                print("sucesso")
-//                //self?.presenter?.presentCardDetail(cardDetail)
-//            case .failure(let error):
-//                self?.presenter?.presentError(message: error.localizedDescription)
-//            }
-//        }
+    func presentCardDetail() {
+        presenter?.presentCardDetail(self.card)
     }
 }
 

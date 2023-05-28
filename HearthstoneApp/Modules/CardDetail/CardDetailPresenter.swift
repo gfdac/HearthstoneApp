@@ -8,7 +8,8 @@
 import Foundation
 
 protocol CardDetailPresenterProtocol: AnyObject {
-//    func presentCardDetail(_ cardDetail: CardDetailModels.CardDetail)
+    //TODO: os models aqui deveriam ser outros, mas ta..
+    func presentCardDetail(_ cardDetail: CardListModels.Card)
     func presentError(message: String)
     func viewDidLoad()
 }
@@ -16,13 +17,13 @@ protocol CardDetailPresenterProtocol: AnyObject {
 class CardDetailPresenter: CardDetailPresenterProtocol {
 
     weak var view: CardDetailViewProtocol?
-    var interactor: CardDetailInteractorProtocol?
+//    var interactor: CardDetailInteractorProtocol?
     var card: CardListModels.Card?
 
-//    func presentCardDetail(_ cardDetail: CardDetailModels.CardDetail) {
-//        let viewData = CardDetailViewData(card: cardDetail)
-//        view?.displayCardDetail(viewData)
-//    }
+    func presentCardDetail(_ card: CardListModels.Card) {
+//        let viewData = CardDetailViewData(card: card)
+        view?.displayCardDetail(card)
+    }
 
     func presentError(message: String) {
         view?.displayError(message: message)
@@ -33,12 +34,14 @@ class CardDetailPresenter: CardDetailPresenterProtocol {
             presentError(message: "Card not found")
             return
         }
-        interactor?.fetchCardDetail()
+        
+        view?.displayCardDetail(card)
+//        interactor?.presentCardDetail()
     }
 }
 
 
-
+//
 //extension CardDetailPresenter: CardDetailInteractorOutputProtocol {
 //    func presentCardDetail(_ cardDetail: CardDetailModels.CardDetail) {
 //        view?.displayCardDetail(cardDetail)

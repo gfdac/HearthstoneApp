@@ -25,6 +25,7 @@ class CardListViewController: UIViewController, CardListViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        configureActivityIndicator()
         setupPresenter()
         presenter?.fetchCards()
     }
@@ -36,14 +37,7 @@ class CardListViewController: UIViewController, CardListViewProtocol {
         tableView.register(CardTableViewCell.self, forCellReuseIdentifier: "CardTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        
-        activityIndicator = UIActivityIndicatorView(style: .medium)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(activityIndicator)
-        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
-        
         // Constraints
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -52,14 +46,13 @@ class CardListViewController: UIViewController, CardListViewProtocol {
     }
     
     private func configureActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(style: .medium)
+        
+        activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(activityIndicator)
-        
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
     }
     
     private func setupPresenter() {
@@ -87,9 +80,14 @@ class CardListViewController: UIViewController, CardListViewProtocol {
     }
     
     func navigateToCardDetail(card: CardListModels.Card) {
-        let cardDetailViewController = CardDetailViewController()
-        navigationController?.pushViewController(cardDetailViewController, animated: true)
+        guard let navigationController = navigationController else {
+            return
+        }
+        
+        let cardDetailViewController = CardDetailRouter.createModule(with: card)
+        navigationController.pushViewController(cardDetailViewController, animated: true)
     }
+
     
     func startLoadingIndicator() {
         DispatchQueue.main.async {

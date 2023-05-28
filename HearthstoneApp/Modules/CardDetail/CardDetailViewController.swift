@@ -13,8 +13,6 @@ protocol CardDetailViewProtocol: AnyObject {
 }
 
 class CardDetailViewController: UIViewController, CardDetailViewProtocol {
-    var presenter: CardDetailPresenterProtocol!
-    
     private let cardImageView: UIImageView = {
         let imageView = UIImageView()
         // Configurar as propriedades do imageView
@@ -84,6 +82,19 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
         return label
     }()
     
+    private var presenter: CardDetailPresenterProtocol
+    private var card: CardListModels.Card
+    
+    init(presenter: CardDetailPresenterProtocol, card: CardListModels.Card) {
+        self.presenter = presenter
+        self.card = card
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -122,7 +133,6 @@ class CardDetailViewController: UIViewController, CardDetailViewProtocol {
     // Implementação do protocolo CardDetailViewProtocol
     
     func displayCardDetail(_ card: CardListModels.Card) {
-//        cardImageView.image = UIImage(named: card.image)
         nameLabel.text = card.name
 //        flavorLabel.text = card.flavor
 //        descriptionLabel.text = card.description
